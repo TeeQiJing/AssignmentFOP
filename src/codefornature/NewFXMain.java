@@ -36,7 +36,7 @@ public class NewFXMain extends Application{
 //        primaryStage.setTitle("Hello World!");
 //        primaryStage.setScene(scene);
 //        primaryStage.show();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("SignUp.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
 //        FXMLLoader loader = new FXMLLoader(System.getProperty("user.dir") + "\\src\\codefornature\\Login.fxml");
         Parent root = loader.load();
 

@@ -1,0 +1,42 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+#leafpane {
+    
+    overflow: hidden;
+}
+#usernameTextField {
+    -fx-background-color:white;
+    -fx-border-style: hidden hidden solid hidden;
+    -fx-border-width: 1;
+    -fx-border-color: rgb(0,102,102);
+}
+#emailTextField {
+    -fx-background-color:white;
+    -fx-border-style: hidden hidden solid hidden;
+    -fx-border-width: 1;
+    -fx-border-color: rgb(0,102,102);
+}
+#passwordTextField {
+    -fx-background-color:white;
+    -fx-border-style: hidden hidden solid hidden;
+    -fx-border-width: 1;
+    -fx-border-color: rgb(0,102,102);
+}
+#usernameTextField:focused {
+    -fx-border-width: 2;
+}
+#emailTextField:focused {
+    -fx-border-width: 2;
+}
+#passwordTextField:focused {
+    -fx-border-width: 2;
+}
+#SignUpBtn:hover {
+    -fx-background-color: rgb(13, 163, 166);
+}
+

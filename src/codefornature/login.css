@@ -2,11 +2,8 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
 
-}
 #leafpane {
-    
     overflow:  hidden;
 }
 #emailTextField {
@@ -29,6 +26,11 @@
     -fx-border-width: 2;
 }
 
-#loginBtn:hover {
+/*#loginBtn:hover {
     -fx-background-color: rgb(13, 163, 166);
 }
+
+#signUpBtn:hover{
+    -fx-text-fill:#ff6666;
+    
+}*/

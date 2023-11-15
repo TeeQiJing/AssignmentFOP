@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="bp1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codefornature.MenuController">
+   <left>
+      <VBox prefHeight="500.0" prefWidth="162.0" style="-fx-background-color: rgb(0,102,102);" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="143.0" prefWidth="162.0" style="-fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;">
+               <children>
+                  <ImageView fitHeight="56.0" fitWidth="52.0" layoutX="16.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/user.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="usernameText" fill="WHITE" layoutX="16.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qi Jing Tee">
+                     <font>
+                        <Font name="Berlin Sans FB" size="19.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="pointsText" fill="WHITE" layoutX="16.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points : 0">
+                     <font>
+                        <Font name="Berlin Sans FB" size="19.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <Button fx:id="homeBtn" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#homePage" prefHeight="65.0" prefWidth="187.0" style="-fx-background-color: transparent; -fx-border-width: 2px 0px 2px 0px;" text="Home         " textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="triviaBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#triviaPage" prefHeight="65.0" prefWidth="187.0" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" text="Trivia          " textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/trivia.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="newsBtn" layoutX="10.0" layoutY="80.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#newsPage" prefHeight="65.0" prefWidth="187.0" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" text="News          " textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/news.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="pointShopBtn" layoutX="10.0" layoutY="151.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#pointShopPage" prefHeight="65.0" prefWidth="187.0" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" text="Point Shop " textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/shop.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="donationBtn" layoutX="10.0" layoutY="221.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#donationPage" prefHeight="65.0" prefWidth="187.0" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" text="Donation    " textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/donation.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="logOutBtn" layoutX="10.0" layoutY="292.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#logOutPage" prefHeight="65.0" prefWidth="162.0" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 0px 0px;" text="Log Out     " textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <BorderPane fx:id="bp2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <center>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Home" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Segoe UI" size="40.0" />
+               </font>
+            </Text>
+         </center>
+      </BorderPane>
+   </center>
+</BorderPane>

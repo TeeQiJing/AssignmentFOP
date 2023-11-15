@@ -2,9 +2,7 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
 
-}
 #leafpane {
     
     overflow: hidden;
@@ -36,7 +34,7 @@
 #passwordTextField:focused {
     -fx-border-width: 2;
 }
-#SignUpBtn:hover {
+/*#SignUpBtn:hover {
     -fx-background-color: rgb(13, 163, 166);
-}
+}*/
 

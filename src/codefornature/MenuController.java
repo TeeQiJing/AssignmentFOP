@@ -6,8 +6,7 @@ package codefornature;
 
 //import com.sun.javafx.logging.Logger;
 //import com.sun.javafx.logging.PlatformLogger.Level;
-import java.util.logging.*;
-import com.sun.javafx.logging.PlatformLogger.Level;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,9 +18,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javax.swing.JFrame;
@@ -34,10 +36,8 @@ import javax.swing.JOptionPane;
  */
 public class MenuController implements Initializable {
 
+    private double x=0, y=0;
 
-
-    
-    
     public static String email;
     public static String username;
     public static int current_points;
@@ -68,6 +68,16 @@ public class MenuController implements Initializable {
     private Scene scene;
     private Stage stage;
     private Parent root;
+    @FXML
+    private ImageView closeBtn;
+    @FXML
+    private ImageView maxBtn;
+    @FXML
+    private ImageView minBtn;
+    @FXML
+    private VBox menuVBox;
+    @FXML
+    private AnchorPane minMaxClosebar;
     
 
     public void setInfo(String username, String email, int current_points){
@@ -114,15 +124,20 @@ public class MenuController implements Initializable {
         hoverEffect(pointShopBtn);
         hoverEffect(donationBtn);
         hoverEffect(logOutBtn);
+        btnHover(closeBtn, "red");
+        btnHover(minBtn, "yellow");
+        btnHover(maxBtn, "green");
+//        bp1.setStyle("-fx-background-radius: 10; -fx-border-radius: 10;");
+//        bp2.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; ");
+//        menuVBox.setStyle("-fx-border-radius: 10; ");
+//        minMaxClosebar.setStyle("-fx-border-radius: 10;");
+        
 
-        
-        
     }    
 
     @FXML
     private void homePage(MouseEvent event) {
-        bp1.setCenter(bp2);
-        
+        loadPage("Home"); 
     }
 
     @FXML
@@ -168,7 +183,7 @@ public class MenuController implements Initializable {
         }catch(IOException e){
             e.printStackTrace();
         }
-        bp1.setCenter(root);     
+        bp2.setCenter(root);     
     }
 //    hoverEffect(homeBtn);
     
@@ -178,5 +193,66 @@ public class MenuController implements Initializable {
         
 //    }
 
+    @FXML
+    private void borderpane_dragged(MouseEvent event) {
+        stage = (Stage) bp1.getScene().getWindow();
+//    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setY(event.getScreenY() - y);
+        stage.setX(event.getScreenX() - x);
+    }
+
+    @FXML
+    private void borderpane_pressed(MouseEvent event) {
+        x = event.getSceneX();
+        y = event.getSceneY();
+    }
+
+    @FXML
+    private void closeBtnClicked(MouseEvent event) {
+        stage = (Stage) closeBtn.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    private void maxBtnClicked(MouseEvent event) {
+        stage = (Stage) minBtn.getScene().getWindow();
+        
+        if(stage.isMaximized())
+            stage.setMaximized(false);
+        else
+            stage.setMaximized(true);
+        
+    }
+
+    @FXML
+    private void minBtnClicked(MouseEvent event) {
+        stage = (Stage) minBtn.getScene().getWindow();
+        stage.setIconified(true);
+    }
+    
+    private void btnHover(ImageView btn, String name){
+//        Image image = btn.getImage();
+        
+        File oldFile = new File("src/codefornature/images/"+name+".png");
+        Image oldImage = new Image(oldFile.toURI().toString());
+        
+        File newFile = new File("src/codefornature/images/"+name+"_hover.png");
+        Image newImage = new Image(newFile.toURI().toString());
+        
+        btn.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                btn.setImage(newImage);
+            }
+        });
+
+        // Remove the hover effect when the mouse exits the button.
+        btn.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                btn.setImage(oldImage);
+            }
+        });
+    }
     
 }

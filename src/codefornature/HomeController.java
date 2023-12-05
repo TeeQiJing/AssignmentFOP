@@ -4,9 +4,6 @@
  */
 package codefornature;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
@@ -16,7 +13,7 @@ import javafx.fxml.Initializable;
  *
  * @author GIGA
  */
-public class TriviaController implements Initializable {
+public class HomeController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -25,14 +22,5 @@ public class TriviaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    public void readTriviaQues() throws IOException{
-        FileReader in = new FileReader("../TriviaSample.txt");
-        BufferedReader br = new BufferedReader(in);
-
-        while (br.readLine() != null) {
-            System.out.println(br.readLine());
-        }
-        in.close();
-    }
     
 }

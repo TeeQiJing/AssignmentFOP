@@ -22,7 +22,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -36,6 +39,7 @@ public class LoginController implements Initializable {
     private Stage stage;
     private Parent root;
     
+    private double x=0, y=0;
     
     @FXML
     private TextField emailTextField;
@@ -45,6 +49,10 @@ public class LoginController implements Initializable {
     private Label signUpBtn;
     @FXML
     private PasswordField passwordTextField;
+    @FXML
+    private AnchorPane ap;
+    @FXML
+    private ImageView closeBtn;
 
     /**
      * Initializes the controller class.
@@ -119,7 +127,9 @@ public class LoginController implements Initializable {
                         menuController.setInfo(username, userEmail, current_points);
                         
                         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                        scene = new Scene(root, 800, 500);
+                        
+                        scene = new Scene(root);
+                        
                         stage.setScene(scene);
                         stage.setTitle("Home");
                         stage.show();
@@ -149,5 +159,24 @@ public class LoginController implements Initializable {
         stage.show();
     }
 //    loginBtn.setOnMouseEntered(event -> button.setStyle(hoverStyle));
+
+    @FXML
+    private void anchorpane_dragged(MouseEvent event) {
+        stage = (Stage) ap.getScene().getWindow();
+        stage.setY(event.getScreenY() - y);
+        stage.setX(event.getScreenX() - x);
+    }
+
+    @FXML
+    private void anchorpane_pressed(MouseEvent event) {
+        x = event.getSceneX();
+        y = event.getSceneY();
+    }
+
+    @FXML
+    private void closeBtnClicked(MouseEvent event) {
+        stage = (Stage) closeBtn.getScene().getWindow();
+        stage.close();
+    }
     
 }

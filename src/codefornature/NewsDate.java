@@ -72,4 +72,13 @@ public class NewsDate {
             return "";
         }              
     }
+    public static Date parseDateString(String dateString) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy");
+        try {
+            return dateFormat.parse(dateString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

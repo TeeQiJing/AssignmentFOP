@@ -26,7 +26,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -40,6 +42,10 @@ public class SignUpController implements Initializable {
     private Scene scene;
     private Stage stage;
     private Parent root;
+    
+    private double x=0, y=0;
+
+    
     @FXML
     private TextField usernameTextField;
     @FXML
@@ -50,6 +56,10 @@ public class SignUpController implements Initializable {
     private Button signUpBtn;
     @FXML
     private Label loginBtn;
+    @FXML
+    private AnchorPane ap;
+    @FXML
+    private ImageView closeBtn;
 
     /**
      * Initializes the controller class.
@@ -171,5 +181,26 @@ public class SignUpController implements Initializable {
         stage.setTitle("Login");
         stage.show();
     }
+
+    @FXML
+    private void closeBtnClicked(MouseEvent event) {
+        stage = (Stage) closeBtn.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    private void anchorpane_dragged(MouseEvent event) {
+        stage = (Stage) ap.getScene().getWindow();
+        stage.setY(event.getScreenY() - y);
+        stage.setX(event.getScreenX() - x);
+    }
+
+    @FXML
+    private void anchorpane_pressed(MouseEvent event) {
+        x = event.getSceneX();
+        y = event.getSceneY();    
+    }
+
+
     
 }

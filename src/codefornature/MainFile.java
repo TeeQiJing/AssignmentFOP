@@ -22,7 +22,7 @@ public class MainFile extends Application{
     public void start(Stage primaryStage) throws Exception {
         
         Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
-//        primaryStage.initStyle(StageStyle.UNIFIED);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);

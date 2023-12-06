@@ -14,7 +14,6 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -25,9 +24,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -166,14 +165,33 @@ public class MenuController implements Initializable {
         username = null;
         current_points = 0;
         
-        JOptionPane.showMessageDialog(new JFrame(), "You have successfully logged out!", "Dialog", JOptionPane.YES_NO_CANCEL_OPTION);
+//        JOptionPane.showMessageDialog(new JFrame(), "You have successfully logged out!", "Dialog", JOptionPane.YES_NO_CANCEL_OPTION);
 
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root, 800, 500);
-        stage.setScene(scene);
-        stage.setTitle("Login");
-        stage.show();
+
+//        Parent popOutRoot = FXMLLoader.load(getClass().getResource("LogOut.fxml"));
+        try {
+            // Load the pop-out logout FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("LogOut.fxml"));
+            Parent root = loader.load();
+
+            // Create a new stage for the pop-out window
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Log Out");
+            
+            popupStage.setScene(new Scene(root));
+
+            // Set the modality of the stage to APPLICATION_MODAL
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+
+            // Show the pop-out window
+            popupStage.showAndWait();
+//            popupStage.initStyle(StageStyle.UNDECORATED);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        
+        
     }
     
     private void loadPage(String page){

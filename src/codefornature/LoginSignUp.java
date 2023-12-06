@@ -5,6 +5,7 @@
 package codefornature;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -24,7 +25,7 @@ public class LoginSignUp extends Application{
         primaryStage.initStyle(StageStyle.UNDECORATED);
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Login");
+       
         primaryStage.show();
     }
 
@@ -34,5 +35,6 @@ public class LoginSignUp extends Application{
     public static void main(String[] args) {
         launch(args);
     }
+    
     
 }

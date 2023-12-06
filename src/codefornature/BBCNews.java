@@ -32,7 +32,7 @@ public class BBCNews {
             PreparedStatement statement = conn.prepareStatement(deleteSql);
             statement.executeUpdate();
             
-            int pages = 5;
+            int pages = 10;
             int count = 0;
             
             String str = "";
@@ -96,12 +96,29 @@ public class BBCNews {
             // close the file 
             fw.close();  
             
+            
         }catch(Exception e){
             e.printStackTrace();
         }
     }
     
-    public static void main(String[] args) {
-        BBCNews.UpdateNews();
+    public static void main(String[] args) throws Exception{
+//        BBCNews.UpdateNews();
+//        String sql = "SELECT * FROM news WHERE date='2023-11-27'";
+//
+//        Connection conn = JConnection.Conn();
+//        Statement statement = conn.createStatement();
+//        ResultSet resultSet = statement.executeQuery(sql);
+//        while(resultSet.next()){
+//                 
+//            String title = resultSet.getString("title");
+//            String url = resultSet.getString("url");
+//            Date date = resultSet.getDate("date");
+//            System.out.println("Title : " + title);
+//            System.out.println("Url : " + url);
+//            System.out.println("Date : " + date.toString());
+//            
+//            System.out.println();
+//        }
     }
 }

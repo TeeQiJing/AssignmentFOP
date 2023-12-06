@@ -117,6 +117,7 @@ public class MenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        BBCNews.UpdateNews();
         hoverEffect(homeBtn);
         hoverEffect(triviaBtn);
         hoverEffect(newsBtn);
@@ -147,6 +148,7 @@ public class MenuController implements Initializable {
     @FXML
     private void newsPage(MouseEvent event) {
         loadPage("News");
+        
     }
 
     @FXML

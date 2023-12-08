@@ -21,7 +21,7 @@ public class MainFile extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
         
-        Parent root = FXMLLoader.load(getClass().getResource("Donations.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
         primaryStage.initStyle(StageStyle.UNDECORATED);
 
         Scene scene = new Scene(root);

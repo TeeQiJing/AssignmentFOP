@@ -5,3 +5,18 @@
 .mainFxmlClass {
 
 }
+.dayBtn{
+    -fx-background-color: #dddddd;
+    -fx-border-width: 0px;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-font-size: 30px;
+}
+.dayBtn::after {
+    content: "asas";
+    
+}
+.previousBtn, .nextBtn {
+    -fx-background-color: #dddddd;
+    -fx-background-radius: 5px;
+}

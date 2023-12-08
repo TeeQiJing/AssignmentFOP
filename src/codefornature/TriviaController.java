@@ -11,19 +11,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 
-/**
- * FXML Controller class
- *
- * @author GIGA
- */
 public class TriviaController implements Initializable {
-
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
     }    
     public void readTriviaQues() throws IOException{
         FileReader in = new FileReader("../TriviaSample.txt");
@@ -33,6 +24,5 @@ public class TriviaController implements Initializable {
             System.out.println(br.readLine());
         }
         in.close();
-    }
-    
+    }  
 }

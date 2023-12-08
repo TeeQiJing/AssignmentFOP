@@ -17,10 +17,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -42,7 +42,6 @@ public class LoginController implements Initializable {
     private Scene scene;
     private Stage stage;
     private Parent root;
-    
     private double x=0, y=0;
     
     @FXML
@@ -69,13 +68,11 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-//        ap.getChildren().add(loadingAP);
         loadingAP.setVisible(false);
         loadingAP.managedProperty().bind(loadingAP.visibleProperty());
         
         String hoverStyle = "-fx-background-color: rgb(13, 163, 166);"; 
         String textStyle = "-fx-text-fill:#ff6666;"; 
-        
 
         // Add the hover effect when the mouse enters the button.
         loginBtn.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
@@ -110,12 +107,8 @@ public class LoginController implements Initializable {
         });
     }    
 
-
-
     @FXML
     private void login(ActionEvent event) {
-
-        
         try{
             Connection conn = JConnection.Conn();
             if(emailTextField.getText().isEmpty() || passwordTextField.getText().isEmpty())
@@ -140,6 +133,19 @@ public class LoginController implements Initializable {
                         SessionManager.setCurrentUser(user);
                         loadingAP.setVisible(true);
                         loadingAP.managedProperty().bind(loadingAP.visibleProperty());
+                        
+                        // Create a Task that update the News
+                        Task<Void> backgroundTask = new Task<>() {
+                            @Override
+                            protected Void call() throws Exception {
+                                BBCNews.UpdateNews();
+                                return null;
+                            }
+                        };
+                        
+                        // Bind the ProgressBar's progress property to the progress property of the background task
+                        progressIndicator.progressProperty().bind(backgroundTask.progressProperty());
+                        
                         Timeline timeline = new Timeline(
                                 new KeyFrame(Duration.ZERO, e -> {
                                     // Toggle the indeterminate property
@@ -153,34 +159,26 @@ public class LoginController implements Initializable {
 
                         // Start the timeline
                         timeline.play();
+                        
+                        // Start the background task
+                        new Thread(backgroundTask).start();
+                        
                         // Add an event handler to detect when the animation is finished
                         timeline.setOnFinished(e -> {
-                            // Perform any actions you need after the animation finishes
-                
-                            try{
-                                // JOptionPane.showMessageDialog(new JFrame(), "Login Successfully!", "Dialog", JOptionPane.YES_NO_CANCEL_OPTION);
+                            try{   
                                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Menu.fxml"));
                                 Parent root = loader.load();
-
-        //                        MenuController menuController = loader.getController();
-        //                        menuController.setInfo(username, userEmail, current_points);
-
                                 stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-
                                 scene = new Scene(root);
-
                                 stage.setScene(scene);
                                 stage.show();
                             }catch(Exception ep){
                                 ep.printStackTrace();
-                            }
-                            
-                            
-                        });
-                        
-                    }else{
+                            }  
+                        });             
+                    }else
                         JOptionPane.showMessageDialog(new JFrame(), "Login Failed! Invalid email or password!", "Dialog", JOptionPane.ERROR_MESSAGE);
-                    }
+                    
                 }         
             }
             
@@ -191,8 +189,6 @@ public class LoginController implements Initializable {
         passwordTextField.setText("");   
     }
 
-
-
     @FXML
     private void signUp(MouseEvent event) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
@@ -202,7 +198,6 @@ public class LoginController implements Initializable {
         stage.setTitle("Sign Up");
         stage.show();
     }
-//    loginBtn.setOnMouseEntered(event -> button.setStyle(hoverStyle));
 
     @FXML
     private void anchorpane_dragged(MouseEvent event) {
@@ -221,6 +216,5 @@ public class LoginController implements Initializable {
     private void closeBtnClicked(MouseEvent event) {
         stage = (Stage) closeBtn.getScene().getWindow();
         stage.close();
-    }
-    
+    } 
 }

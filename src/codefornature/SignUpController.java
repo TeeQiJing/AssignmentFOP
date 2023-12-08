@@ -44,9 +44,7 @@ public class SignUpController implements Initializable {
     private Scene scene;
     private Stage stage;
     private Parent root;
-    
     private double x=0, y=0;
-
     
     @FXML
     private TextField usernameTextField;
@@ -63,15 +61,10 @@ public class SignUpController implements Initializable {
     @FXML
     private ImageView closeBtn;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        
+    public void initialize(URL url, ResourceBundle rb) {    
         String hoverStyle = "-fx-background-color: rgb(13, 163, 166);"; 
-        String textStyle = "-fx-text-fill:#ff6666;"; 
-        
+        String textStyle = "-fx-text-fill:#ff6666;";  
 
         // Add the hover effect when the mouse enters the button.
         signUpBtn.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
@@ -116,8 +109,7 @@ public class SignUpController implements Initializable {
             }else{
                 String email = emailTextField.getText();
                 String username = usernameTextField.getText();
-                String password = passwordTextField.getText();
-                
+                String password = passwordTextField.getText();      
                 
                 String regex = "[0-9a-zA-Z._-]+@(.+)$";
                 Pattern pattern = Pattern.compile(regex);
@@ -135,13 +127,13 @@ public class SignUpController implements Initializable {
                         break;
                     }
                 }
+                
                 if(!validEmail){
                     JOptionPane.showMessageDialog(new JFrame(), "This email is not a valid email. Please register again!", "Dialog", JOptionPane.ERROR_MESSAGE);
                 }else if(emailIsExist){
                     JOptionPane.showMessageDialog(new JFrame(), "This email has already registered. Please Log In!", "Dialog", JOptionPane.ERROR_MESSAGE);
                     login(event);
-                }
-                else {
+                }else {
                     Date date = new Date();  
                     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
                     String registration_date = formatter.format(date);  
@@ -153,7 +145,6 @@ public class SignUpController implements Initializable {
                     stmt.setString(2, username);
                     stmt.setString(3, password);
                     stmt.setString(4, registration_date);
-
 
                     // stmt.executeUpdate() returns the number of rows inserted, for this case is 1               
                     int count = stmt.executeUpdate();
@@ -184,7 +175,6 @@ public class SignUpController implements Initializable {
                         JOptionPane.showMessageDialog(new JFrame(), "Registration Failed!", "Dialog", JOptionPane.ERROR_MESSAGE);
                 }
             }
-          
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
@@ -220,8 +210,5 @@ public class SignUpController implements Initializable {
     private void anchorpane_pressed(MouseEvent event) {
         x = event.getSceneX();
         y = event.getSceneY();    
-    }
-
-
-    
+    } 
 }

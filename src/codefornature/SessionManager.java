@@ -18,6 +18,7 @@ public class SessionManager {
     public static User getCurrentUser() {
         return currentUser;
     }
+    
     public static boolean isUserLoggedIn() {
         return currentUser != null;
     }

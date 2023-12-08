@@ -11,14 +11,12 @@ package codefornature;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import javax.swing.JFrame;
-//import java.sql.Statement;
 import javax.swing.JOptionPane;
 public class JConnection {
-    public static Connection Conn() throws Exception{
+    public static Connection Conn(){
         String url = "jdbc:mysql://localhost:3306/codefornature";
         String username = "root";
         String password = "";
-        
         try{
             // Call the system class loader to load the driver class
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -28,7 +26,5 @@ public class JConnection {
             JOptionPane.showMessageDialog(new JFrame(), "Please Start XAMPP Control Panel!", "Dialog", JOptionPane.ERROR_MESSAGE);
             return null;
         }
-  
     }
-
 }

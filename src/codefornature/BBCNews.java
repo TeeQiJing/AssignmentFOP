@@ -15,18 +15,13 @@ import org.jsoup.select.Elements;
 import java.io.FileWriter; 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.Date;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 public class BBCNews {
     public static void UpdateNews() {
 
         try{
             Connection conn = JConnection.Conn();
-
             String deleteSql = "DELETE FROM news";
             PreparedStatement statement = conn.prepareStatement(deleteSql);
             statement.executeUpdate();
@@ -36,19 +31,15 @@ public class BBCNews {
             
             String str = "";
             String urls[] = new String[pages];
-
             
             for(int i=0; i<pages; i++)
-                urls[i] = "https://www.bbc.com/news/topics/cnx753jenyjt?page=" + (i+1);
-          
+                urls[i] = "https://www.bbc.com/news/topics/cnx753jenyjt?page=" + (i+1);        
             
             for(String url : urls){     
                 Document document = Jsoup.connect(url).get();
                 Elements div = document.select("div.ssrcss-d9gbsd-Promo.e1vyq2e80 div.ssrcss-1ns4t85-PromoSwitchLayoutAtBreakpoints.et5qctl0 div.ssrcss-tq7xfh-PromoContent.exn3ah99");
 
-                for(Element row : div){
-
-                    
+                for(Element row : div){    
                     String title = row.select("p.ssrcss-17zglt8-PromoHeadline.exn3ah96 span").text();
                     String newsUrl="https://bbc.com" + row.select("a.ssrcss-1mrs5ns-PromoLink.exn3ah91[href]").attr("href");
                     String newsDate = row.select("div.ssrcss-13nu8ri-GroupChildrenForWrapping.eh44mf02 span.visually-hidden.ssrcss-1f39n02-VisuallyHidden.e16en2lz0").text();
@@ -57,8 +48,7 @@ public class BBCNews {
                          
                     if(newsDate.equals(""))
                         continue;
-                    else{
-                        
+                    else{         
                         // Parse the string to java.util.Date
                         Date parsedDate = NewsDate.parseDateString(newsDate);
 
@@ -77,47 +67,23 @@ public class BBCNews {
 
                         str = str + (title + "\n" + newsUrl + "\n" + newsDate + "\n\n");    
                         count++;
-                    }  
-                    
-                }
-                
+                    }     
+                } 
             }
             
             FileWriter fw = new FileWriter("NewsSample.txt"); 
 
             // read each character from string and write 
             // into FileWriter 
-            
             for (int i = 0; i < str.length(); i++) 
                 fw.write(str.charAt(i)); 
 
             System.out.println("Successfully written. Total " + count + " News."); 
+            
             // close the file 
-            fw.close();  
-            
-            
+            fw.close();        
         }catch(Exception e){
             e.printStackTrace();
         }
-    }
-    
-    public static void main(String[] args) throws Exception{
-//        BBCNews.UpdateNews();
-//        String sql = "SELECT * FROM news WHERE date='2023-11-27'";
-//
-//        Connection conn = JConnection.Conn();
-//        Statement statement = conn.createStatement();
-//        ResultSet resultSet = statement.executeQuery(sql);
-//        while(resultSet.next()){
-//                 
-//            String title = resultSet.getString("title");
-//            String url = resultSet.getString("url");
-//            Date date = resultSet.getDate("date");
-//            System.out.println("Title : " + title);
-//            System.out.println("Url : " + url);
-//            System.out.println("Date : " + date.toString());
-//            
-//            System.out.println();
-//        }
     }
 }

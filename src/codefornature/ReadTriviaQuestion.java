@@ -9,24 +9,15 @@ import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-/**
- *
- * @author GIGA
- */
 public class ReadTriviaQuestion {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        // TODO code application logic here
         readTriviaQues();
     }
+    
     public static void readTriviaQues(){
         try {
             // Establish a database connection
             Connection conn = JConnection.Conn();
-            
             
             String deleteSql = "DELETE FROM trivia";
             PreparedStatement statement = conn.prepareStatement(deleteSql);
@@ -57,13 +48,7 @@ public class ReadTriviaQuestion {
                 }
             }
 
-            // Close resources
-            br.close();
-            preparedStatement.close();
-            conn.close();
-
             System.out.println("Data insertion successful.");
-
         } catch (Exception e) {
             e.printStackTrace();
         }

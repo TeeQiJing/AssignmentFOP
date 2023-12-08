@@ -4,15 +4,7 @@
  */
 package codefornature;
 
-/**
- *
- * @author GIGA
- */
 public class User {
-
-    /**
-     * @param args the command line arguments
-     */
     private static String email;
     private static String username;
     private static String password;
@@ -33,8 +25,7 @@ public class User {
     public void setEmail(String email){
         this.email = email;
     }
-
-
+    
     public String getUsername(){
         return this.username;
     }
@@ -50,14 +41,12 @@ public class User {
         this.password = password;
     }
     
-    
     public String getRegistrationDate(){
         return this.registrationDate;
     }
     public void setRegistrationDate(String registrationDate){
         this.registrationDate = registrationDate;
     }
-    
     
     public int getCurrentPoint(){
         return this.currentPoint;

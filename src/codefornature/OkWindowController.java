@@ -55,8 +55,7 @@ public class OkWindowController implements Initializable {
             stage.setTitle("Sign Up Successfully");
             stage.initStyle(StageStyle.UNDECORATED);
             
-            stage.show();   
-        
+            stage.show();         
         }catch(Exception e){
             e.printStackTrace();
         }

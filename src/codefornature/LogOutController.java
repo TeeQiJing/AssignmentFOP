@@ -7,7 +7,6 @@ package codefornature;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +17,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
@@ -30,10 +28,11 @@ import javafx.stage.Window;
  */
 public class LogOutController implements Initializable {
 
-    @FXML
-    private BorderPane bp;
     private double x=0, y=0;
     private Stage stage;
+    
+    @FXML
+    private BorderPane bp;
     @FXML
     private Button yesBtn;
     @FXML
@@ -99,5 +98,4 @@ public class LogOutController implements Initializable {
         x = event.getSceneX();
         y = event.getSceneY();
     }
-    
 }

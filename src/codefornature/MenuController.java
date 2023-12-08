@@ -36,10 +36,10 @@ import javafx.stage.StageStyle;
 public class MenuController implements Initializable {
 
     private double x=0, y=0;
-
-//    public static String email;
-//    public static String username;
-//    public static int current_points;
+    private Scene scene;
+    private Stage stage;
+    private Parent root;
+    String hoverStyle = "-fx-background-color: rgb(13, 163, 166);";
     
     @FXML
     private Text usernameText;
@@ -57,16 +57,10 @@ public class MenuController implements Initializable {
     private Button donationBtn;
     @FXML
     private Button logOutBtn;
-    
-    String hoverStyle = "-fx-background-color: rgb(13, 163, 166);";
     @FXML
     private BorderPane bp1;
     @FXML
     private BorderPane bp2;
-    
-    private Scene scene;
-    private Stage stage;
-    private Parent root;
     @FXML
     private ImageView closeBtn;
     @FXML
@@ -76,20 +70,8 @@ public class MenuController implements Initializable {
     @FXML
     private VBox menuVBox;
     @FXML
-    private AnchorPane minMaxClosebar;
+    private AnchorPane minMaxClosebar; 
     
-    
-    
-
-//    public void setInfo(String username, String email, int current_points){
-////        this.username = username;
-////        this.email = email;
-////        this.current_points = current_points;
-//        
-//        usernameText.setText(this.username);
-//        pointsText.setText("Points: " + Integer.toString(this.current_points));
-//        
-//    }
     /**
      * Initializes the controller class.
      */
@@ -98,28 +80,20 @@ public class MenuController implements Initializable {
         btn.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                btn.setStyle(hoverStyle);
-//                homeBtn.setStyle("-fx-border-color: white;");
-//                homeBtn.setStyle("-fx-border-width: 0px 0px 2px 0px;");
-                
+                btn.setStyle(hoverStyle); 
             }
         });
 
-        
         btn.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 btn.setStyle("-fx-background-color: transparent;");
-//                homeBtn.setStyle("-fx-border-color: white;");
-//                homeBtn.setStyle("-fx-border-width: 0px 0px 2px 0px;");
             }
         });
     }
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        BBCNews.UpdateNews();
         hoverEffect(homeBtn);
         hoverEffect(triviaBtn);
         hoverEffect(newsBtn);
@@ -129,10 +103,6 @@ public class MenuController implements Initializable {
         btnHover(closeBtn, "red");
         btnHover(minBtn, "yellow");
         btnHover(maxBtn, "green");
-//        bp1.setStyle("-fx-background-radius: 10; -fx-border-radius: 10;");
-//        bp2.setStyle("-fx-background-radius: 10; -fx-border-radius: 10; ");
-//        menuVBox.setStyle("-fx-border-radius: 10; ");
-//        minMaxClosebar.setStyle("-fx-border-radius: 10;");
         
         if(SessionManager.isUserLoggedIn()){
             User currentUser = SessionManager.getCurrentUser();
@@ -142,8 +112,6 @@ public class MenuController implements Initializable {
             usernameText.setText("No User");
             pointsText.setText("No Points");
         }
-        
-
     }    
     
     @FXML
@@ -159,7 +127,6 @@ public class MenuController implements Initializable {
     @FXML
     private void newsPage(MouseEvent event) {
         loadPage("News");
-        
     }
 
     @FXML
@@ -196,15 +163,13 @@ public class MenuController implements Initializable {
             // Set the modality of the stage to APPLICATION_MODAL
             popupStage.initModality(Modality.APPLICATION_MODAL);
             popupStage.initStyle(StageStyle.UNDECORATED);
+            
             // Show the pop-out window
             popupStage.showAndWait();
 
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        
-        
-        
+        }   
     }
     
     private void loadPage(String page){
@@ -216,18 +181,10 @@ public class MenuController implements Initializable {
         }
         bp2.setCenter(root);     
     }
-//    hoverEffect(homeBtn);
-    
-    
-//    private void hoverEffect(Button btn){
-    // Add the hover effect when the mouse enters the button.
-        
-//    }
 
     @FXML
     private void borderpane_dragged(MouseEvent event) {
         stage = (Stage) bp1.getScene().getWindow();
-//    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setY(event.getScreenY() - y);
         stage.setX(event.getScreenX() - x);
     }
@@ -247,12 +204,10 @@ public class MenuController implements Initializable {
     @FXML
     private void maxBtnClicked(MouseEvent event) {
         stage = (Stage) minBtn.getScene().getWindow();
-        
         if(stage.isMaximized())
             stage.setMaximized(false);
         else
             stage.setMaximized(true);
-        
     }
 
     @FXML
@@ -261,9 +216,7 @@ public class MenuController implements Initializable {
         stage.setIconified(true);
     }
     
-    private void btnHover(ImageView btn, String name){
-//        Image image = btn.getImage();
-        
+    private void btnHover(ImageView btn, String name){   
         File oldFile = new File("src/codefornature/images/"+name+".png");
         Image oldImage = new Image(oldFile.toURI().toString());
         
@@ -285,5 +238,4 @@ public class MenuController implements Initializable {
             }
         });
     }
-    
 }

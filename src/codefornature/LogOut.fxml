@@ -1,45 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="350.0" style="-fx-background-color: rgb(0,102,102);" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codefornature.LogOutController">
-    <stylesheets>
-        <URL value="@logout.css" />
-    </stylesheets>
-   <children>
-      <AnchorPane prefHeight="200.0" prefWidth="350.0" style="-fx-background-color: rgb(0.102,102);">
+
+<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#borderpane_dragged" onMousePressed="#borderpane_pressed" prefHeight="250.0" prefWidth="400.0" style="-fx-background-color: rgb(0,102,102);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codefornature.LogOutController">
+   <top>
+      <AnchorPane prefHeight="44.0" prefWidth="400.0" style="-fx-border-color: white; -fx-border-width: 0px 0px 1px 0px;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="14.0" layoutY="6.0" text="Logout" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0">
+            <Label layoutX="163.0" layoutY="6.0" text="Log Out" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font name="System Bold Italic" size="20.0" />
+                  <Font name="Segoe UI Semibold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="107.0" layoutY="73.0" text="Do you want to log out ?" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI Semibold" size="14.0" />
-               </font>
-            </Label>
-            <Button layoutX="102.0" layoutY="125.0" mnemonicParsing="false" onAction="#noLogOut" prefHeight="26.0" prefWidth="62.0" style="-fx-background-color: #FFFFFF;" text="No" textAlignment="CENTER">
-               <font>
-                  <Font name="Segoe UI" size="12.0" />
-               </font></Button>
-            <Button alignment="CENTER" layoutX="186.0" layoutY="125.0" mnemonicParsing="false" onAction="#yesLogOut" prefHeight="26.0" prefWidth="62.0" style="-fx-background-color: #FFFFFF;" text="Yes" textAlignment="CENTER">
-               <font>
-                  <Font name="Segoe UI" size="12.0" />
-               </font>
-            </Button>
-            <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="76.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <Label text="Are you sure to log out now ?" textFill="WHITE" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Segoe UI Italic" size="21.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/logoutsmall.png" />
                </image>
             </ImageView>
+         </graphic>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </Label>
+   </center>
+   <bottom>
+      <AnchorPane prefHeight="75.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button id="yesBtn" fx:id="yesBtn" layoutX="96.0" mnemonicParsing="false" onAction="#yesLogOut" prefHeight="29.0" prefWidth="70.0" style="-fx-background-color: white; -fx-border-width: 0px; -fx-background-radius: 5px;" text="Yes">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="noBtn" fx:id="noBtn" layoutX="229.0" mnemonicParsing="false" onAction="#noLogOut" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: white; -fx-border-width: 0px; -fx-background-radius: 5px;" text="No">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </AnchorPane>
-   </children>
-</AnchorPane>
+   </bottom>
+</BorderPane>

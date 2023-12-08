@@ -26,9 +26,8 @@ public class BBCNews {
 
         try{
             Connection conn = JConnection.Conn();
-           
 
-            String deleteSql = "DELETE FROM news WHERE 1";
+            String deleteSql = "DELETE FROM news";
             PreparedStatement statement = conn.prepareStatement(deleteSql);
             statement.executeUpdate();
             

@@ -6,8 +6,8 @@ package codefornature;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 /**
  *
@@ -23,26 +23,48 @@ public class ReadTriviaQuestion {
         readTriviaQues();
     }
     public static void readTriviaQues(){
-        try{
-            String triviaFile = System.getProperty("user.dir") + "\\TriviaSample.txt";
-            FileReader in = new FileReader(triviaFile);
-            BufferedReader br = new BufferedReader(in);
+        try {
+            // Establish a database connection
+            Connection conn = JConnection.Conn();
             
-            ArrayList<String> question = new ArrayList();
-            String lines = "", line;
+            
+            String deleteSql = "DELETE FROM trivia";
+            PreparedStatement statement = conn.prepareStatement(deleteSql);
+            statement.executeUpdate();
+            
+            // Read the file using BufferedReader
+            BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + "\\TriviaSample.txt"));
+            String line;
+
+            // Prepare SQL statement for insertion
+            String sql = "INSERT INTO trivia (question, optionA, optionB, optionC, optionD, answer) VALUES (?, ?, ?, ?, ?, ?)";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+
+            // Loop through all lines till the end of file
             while ((line = br.readLine()) != null) {
-                lines = lines +"\n" + line;
+                // do not select empty line(between 2 question sets)
+                if (!line.trim().isEmpty()) {
+                    // Parse the lines and set values in the prepared statement
+                    preparedStatement.setString(1, line.trim()); // QuestionTopic
+                    String[] options = br.readLine().split(",");
+                    for (int i = 0; i < 4; i++) {
+                        preparedStatement.setString(i + 2, options[i].trim()); // OptionA, OptionB, OptionC, OptionD
+                    }
+                    preparedStatement.setString(6, br.readLine().trim()); // Answer
+
+                    // Execute the insertion
+                    preparedStatement.executeUpdate();
+                }
             }
-            in.close();
-            
-//            System.out.println(lines);
-                
-            String [] quesArr = lines.split("\n");
-            
-            System.out.println(quesArr[0]);
-            System.out.println(":::");
-            System.out.println(quesArr[1]);
-        }catch(Exception e){
+
+            // Close resources
+            br.close();
+            preparedStatement.close();
+            conn.close();
+
+            System.out.println("Data insertion successful.");
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

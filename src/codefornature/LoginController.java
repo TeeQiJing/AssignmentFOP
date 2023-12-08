@@ -17,15 +17,19 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -53,13 +57,22 @@ public class LoginController implements Initializable {
     private AnchorPane ap;
     @FXML
     private ImageView closeBtn;
+    @FXML
+    private AnchorPane loadingAP;
+    @FXML
+    private ProgressIndicator progressIndicator;
 
     /**
      * Initializes the controller class.
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+//        ap.getChildren().add(loadingAP);
+        loadingAP.setVisible(false);
+        loadingAP.managedProperty().bind(loadingAP.visibleProperty());
+        
         String hoverStyle = "-fx-background-color: rgb(13, 163, 166);"; 
         String textStyle = "-fx-text-fill:#ff6666;"; 
         
@@ -101,6 +114,8 @@ public class LoginController implements Initializable {
 
     @FXML
     private void login(ActionEvent event) {
+
+        
         try{
             Connection conn = JConnection.Conn();
             if(emailTextField.getText().isEmpty() || passwordTextField.getText().isEmpty())
@@ -108,32 +123,61 @@ public class LoginController implements Initializable {
             else{
                 String email = emailTextField.getText();
                 String password = passwordTextField.getText();
-                String sql = "SELECT email, username, current_points, count(*) AS count FROM user WHERE email='"+email+"' AND password='"+password+"'";
+                String sql = "SELECT *, count(*) AS count FROM user WHERE email='"+email+"' AND password='"+password+"'";
 
                 Statement statement = conn.createStatement();
                 ResultSet resultSet = statement.executeQuery(sql);
                 while(resultSet.next()){
                     if(resultSet.getInt("count") == 1){
+                        System.out.println("Animation finished");
                         String userEmail = resultSet.getString("email");
                         String username = resultSet.getString("username");
-                        int current_points = resultSet.getInt("current_points");
-                        
-                        
-//                        JOptionPane.showMessageDialog(new JFrame(), "Login Successfully!", "Dialog", JOptionPane.YES_NO_CANCEL_OPTION);
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("Menu.fxml"));
-                        Parent root = loader.load();
-                        
-                        MenuController menuController = loader.getController();
-                        menuController.setInfo(username, userEmail, current_points);
-                        
-                        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                        
-                        scene = new Scene(root);
-                        
-                        stage.setScene(scene);
-                        stage.setTitle("Home");
-                        stage.show();
+                        String registration_date = resultSet.getString("registration_date");
+                        String userPassword = resultSet.getString("password");
+                        int current_points = resultSet.getInt("current_points");                
 
+                        User user = new User(userEmail, username, userPassword, registration_date, current_points);
+                        SessionManager.setCurrentUser(user);
+                        loadingAP.setVisible(true);
+                        loadingAP.managedProperty().bind(loadingAP.visibleProperty());
+                        Timeline timeline = new Timeline(
+                                new KeyFrame(Duration.ZERO, e -> {
+                                    // Toggle the indeterminate property
+                                    progressIndicator.setProgress(progressIndicator.getProgress() == ProgressIndicator.INDETERMINATE_PROGRESS ? 0.0 : ProgressIndicator.INDETERMINATE_PROGRESS);
+                                }),
+                                new KeyFrame(Duration.seconds(1))
+                        );
+
+                        // Set the timeline to execute only once
+                        timeline.setCycleCount(1);
+
+                        // Start the timeline
+                        timeline.play();
+                        // Add an event handler to detect when the animation is finished
+                        timeline.setOnFinished(e -> {
+                            // Perform any actions you need after the animation finishes
+                
+                            try{
+                                // JOptionPane.showMessageDialog(new JFrame(), "Login Successfully!", "Dialog", JOptionPane.YES_NO_CANCEL_OPTION);
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("Menu.fxml"));
+                                Parent root = loader.load();
+
+        //                        MenuController menuController = loader.getController();
+        //                        menuController.setInfo(username, userEmail, current_points);
+
+                                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+                                scene = new Scene(root);
+
+                                stage.setScene(scene);
+                                stage.show();
+                            }catch(Exception ep){
+                                ep.printStackTrace();
+                            }
+                            
+                            
+                        });
+                        
                     }else{
                         JOptionPane.showMessageDialog(new JFrame(), "Login Failed! Invalid email or password!", "Dialog", JOptionPane.ERROR_MESSAGE);
                     }

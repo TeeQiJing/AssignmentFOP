@@ -4,6 +4,7 @@
  */
 package codefornature;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +15,6 @@ import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,7 +29,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -157,8 +159,27 @@ public class SignUpController implements Initializable {
                     int count = stmt.executeUpdate();
 
                     if(count == 1){
-                        JOptionPane.showMessageDialog(new JFrame(), "Registered Successfully! Please Login now!", "Dialog", JOptionPane.YES_NO_CANCEL_OPTION);
-                        login(event);
+                        try {
+                            // Load the pop-out logout FXML file
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("OkWindow.fxml"));
+                            Parent root = loader.load();
+
+                            // Create a new stage for the pop-out window
+                            Stage popupStage = new Stage();
+                            
+
+                            popupStage.setScene(new Scene(root));
+
+                            // Set the modality of the stage to APPLICATION_MODAL
+                            popupStage.initModality(Modality.APPLICATION_MODAL);
+                            popupStage.initStyle(StageStyle.UNDECORATED);
+                            // Show the pop-out window
+                            popupStage.showAndWait();
+                            
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        
                     }else
                         JOptionPane.showMessageDialog(new JFrame(), "Registration Failed!", "Dialog", JOptionPane.ERROR_MESSAGE);
                 }

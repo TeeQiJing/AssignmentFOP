@@ -5,3 +5,7 @@
 .mainFxmlClass {
 
 }
+#yesBtn:hover, #noBtn:hover {
+    
+    -fx-background-color: aliceblue;
+}

@@ -37,9 +37,9 @@ public class MenuController implements Initializable {
 
     private double x=0, y=0;
 
-    public static String email;
-    public static String username;
-    public static int current_points;
+//    public static String email;
+//    public static String username;
+//    public static int current_points;
     
     @FXML
     private Text usernameText;
@@ -78,16 +78,18 @@ public class MenuController implements Initializable {
     @FXML
     private AnchorPane minMaxClosebar;
     
+    
+    
 
-    public void setInfo(String username, String email, int current_points){
-        this.username = username;
-        this.email = email;
-        this.current_points = current_points;
-        
-        usernameText.setText(this.username);
-        pointsText.setText("Points: " + Integer.toString(this.current_points));
-        
-    }
+//    public void setInfo(String username, String email, int current_points){
+////        this.username = username;
+////        this.email = email;
+////        this.current_points = current_points;
+//        
+//        usernameText.setText(this.username);
+//        pointsText.setText("Points: " + Integer.toString(this.current_points));
+//        
+//    }
     /**
      * Initializes the controller class.
      */
@@ -132,9 +134,18 @@ public class MenuController implements Initializable {
 //        menuVBox.setStyle("-fx-border-radius: 10; ");
 //        minMaxClosebar.setStyle("-fx-border-radius: 10;");
         
+        if(SessionManager.isUserLoggedIn()){
+            User currentUser = SessionManager.getCurrentUser();
+            usernameText.setText(currentUser.getUsername());
+            pointsText.setText("Points: " + Integer.toString(currentUser.getCurrentPoint()));
+        }else{
+            usernameText.setText("No User");
+            pointsText.setText("No Points");
+        }
+        
 
     }    
-
+    
     @FXML
     private void homePage(MouseEvent event) {
         loadPage("Home"); 
@@ -163,14 +174,15 @@ public class MenuController implements Initializable {
     
     @FXML
     private void logOutPage(MouseEvent event) throws Exception{
-        email = null;
-        username = null;
-        current_points = 0;
-        
-//        JOptionPane.showMessageDialog(new JFrame(), "You have successfully logged out!", "Dialog", JOptionPane.YES_NO_CANCEL_OPTION);
+        if(SessionManager.isUserLoggedIn()){
+            User currentUser = SessionManager.getCurrentUser();
+            currentUser.setUsername(null);
+            currentUser.setEmail(null);
+            currentUser.setPassword(null);
+            currentUser.setRegistrationDate(null);
+            currentUser.setCurrentPoint(0);
+        }
 
-
-//        Parent popOutRoot = FXMLLoader.load(getClass().getResource("LogOut.fxml"));
         try {
             // Load the pop-out logout FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("LogOut.fxml"));
@@ -178,16 +190,15 @@ public class MenuController implements Initializable {
 
             // Create a new stage for the pop-out window
             Stage popupStage = new Stage();
-            popupStage.setTitle("Log Out");
             
             popupStage.setScene(new Scene(root));
 
             // Set the modality of the stage to APPLICATION_MODAL
             popupStage.initModality(Modality.APPLICATION_MODAL);
-
+            popupStage.initStyle(StageStyle.UNDECORATED);
             // Show the pop-out window
             popupStage.showAndWait();
-//            popupStage.initStyle(StageStyle.UNDECORATED);
+
         } catch (IOException e) {
             e.printStackTrace();
         }

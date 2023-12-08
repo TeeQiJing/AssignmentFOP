@@ -23,7 +23,7 @@ public class LoginSignUp extends Application{
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 
         primaryStage.initStyle(StageStyle.UNDECORATED);
-        Scene scene = new Scene(root);
+       Scene scene = new Scene(root);
         primaryStage.setScene(scene);
        
         primaryStage.show();

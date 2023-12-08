@@ -13,10 +13,10 @@ public class User {
     /**
      * @param args the command line arguments
      */
-    private String email;
-    private String username;
-    private String password;
-    private String registrationDate;
+    private static String email;
+    private static String username;
+    private static String password;
+    private static String registrationDate;
     private int currentPoint;
    
     public User(String email, String username, String password, String registrationDate, int currentPoint){

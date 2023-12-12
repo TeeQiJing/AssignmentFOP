@@ -5,18 +5,24 @@
 package codefornature;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 
 public class TriviaController implements Initializable {
@@ -28,6 +34,7 @@ public class TriviaController implements Initializable {
         int daysRegistered = daysRegistered();
         System.out.println(daysRegistered);
         setLockedDays(daysRegistered);
+        
         
     }    
     
@@ -44,20 +51,68 @@ public class TriviaController implements Initializable {
            return 0;
         }    
     }
+    
+    
     private void setLockedDays(int dayRegistered){
         for (Node node : gp.getChildren()) {
             if (node instanceof Button && node.getStyleClass().contains("dayBtn")) {
                 Button dayButton = (Button) node;
-                // Get the text of the button
                 
+                // Get the text of the button
                 int dayNum = Integer.parseInt(dayButton.getText().split(" ")[1]);
-                if(dayNum<=dayRegistered)
-                    dayButton.setStyle("-fx-background-color: green;");
-                else
-                    dayButton.setStyle("-fx-background-color: red;");
+                if(dayNum<=dayRegistered){
+                    dayButton.setStyle("-fx-background-color: #dddddd;");
+                    dayButton.setDisable(false);
+                }
+                else{
+                    dayButton.setStyle("-fx-background-color: grey;");
+                    dayButton.setDisable(true);
+                }
+                
+                final int DayNum = dayNum;
+                dayButton.setOnMouseClicked(ev -> {
+                    toQuestion(dayButton, DayNum);
+                });
             }
         }
     }
+    
+    public void toQuestion (Button dayButton, int dayNum){
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TriviaQues.fxml"));
+            Parent questionNode = loader.load();
+            TriviaQuesController triviaQuesController = loader.getController();
+            triviaQuesController.setQuesNum(dayNum);
+            
+            BorderPane bp1 = (BorderPane)dayButton.getScene().getRoot();
+            
+            
+            bp1.setCenter(questionNode);
+            
+           
+//            Connection conn = JConnection.Conn();
+//
+//            String sql = "SELECT *, count(*) AS count FROM user WHERE email = ?";
+//            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+//
+//            preparedStatement.setString(1, SessionManager.getCurrentUser().getEmail());
+//            ResultSet resultSet = preparedStatement.executeQuery();
+//            while(resultSet.next()) { 
+//                if(resultSet.getInt("count") == 1){
+//                    int point = resultSet.getInt("current_points");
+//                    ((Label)bp1.lookup("#pointsText")).setText("Points: " + point);
+//                }
+//            }        
+            
+            
+            
+            triviaQuesController.initializeQues();
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
 
     @FXML
     private void nextClicked(MouseEvent event) {
@@ -68,9 +123,15 @@ public class TriviaController implements Initializable {
                 // Get the text of the button
                 int dayNum = Integer.parseInt(dayButton.getText().split(" ")[1]);
                 if(dayNum<=180){
-                    dayButton.setText("Day " + (dayNum + 20));
+                    dayNum = dayNum + 20;
+                    dayButton.setText("Day " + dayNum);
                     setLockedDays(daysRegistered());
+                    
                 }
+                final int DayNum = dayNum;
+                dayButton.setOnMouseClicked(ev -> {
+                    toQuestion(dayButton, DayNum);
+                });
             }
         }
     }
@@ -79,15 +140,19 @@ public class TriviaController implements Initializable {
     private void previousClicked(MouseEvent event) {
         setLockedDays(daysRegistered());
         for (Node node : gp.getChildren()) {
-            
             if (node instanceof Button && node.getStyleClass().contains("dayBtn")) {
                 Button dayButton = (Button) node;
                 // Get the text of the button
                 int dayNum = Integer.parseInt(dayButton.getText().split(" ")[1]);
                 if(dayNum>20){
-                    dayButton.setText("Day " + (dayNum - 20));
+                    dayNum = dayNum - 20;
+                    dayButton.setText("Day " + dayNum);
                     setLockedDays(daysRegistered());
                 }
+                final int DayNum = dayNum;
+                dayButton.setOnMouseClicked(ev -> {
+                    toQuestion(dayButton, DayNum);
+                });
             }
         }
     }

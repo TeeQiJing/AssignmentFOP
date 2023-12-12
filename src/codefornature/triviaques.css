@@ -1,0 +1,17 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+.option {
+    -fx-background-color: #dddddd;
+    -fx-background-radius: 20px;
+    -fx-font-size: 25px;
+    -fx-font-family: "Segoe UI";
+}
+.option::disabled{
+    -fx-background-color: #dddddd;
+    
+}

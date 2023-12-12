@@ -14,6 +14,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -27,6 +28,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.PreparedStatement;
 
 /**
  * FXML Controller class
@@ -44,7 +48,7 @@ public class MenuController implements Initializable {
     @FXML
     private Text usernameText;
     @FXML
-    private Text pointsText;
+    public Text pointsText;
     @FXML
     private Button homeBtn;
     @FXML
@@ -59,8 +63,7 @@ public class MenuController implements Initializable {
     private Button logOutBtn;
     @FXML
     private BorderPane bp1;
-    @FXML
-    private BorderPane bp2;
+//    private BorderPane bp2;
     @FXML
     private ImageView closeBtn;
     @FXML
@@ -94,6 +97,7 @@ public class MenuController implements Initializable {
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        loadPage("Home");
         hoverEffect(homeBtn);
         hoverEffect(triviaBtn);
         hoverEffect(newsBtn);
@@ -107,12 +111,35 @@ public class MenuController implements Initializable {
         if(SessionManager.isUserLoggedIn()){
             User currentUser = SessionManager.getCurrentUser();
             usernameText.setText(currentUser.getUsername());
-            pointsText.setText("Points: " + Integer.toString(currentUser.getCurrentPoint()));
+            updatePoints();
         }else{
             usernameText.setText("No User");
             pointsText.setText("No Points");
         }
-    }    
+    }  
+    public void updatePoints(){
+        try{
+            Connection conn = JConnection.Conn();
+            
+            String sql = "SELECT *, count(*) AS count FROM user WHERE email = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            
+            preparedStatement.setString(1, SessionManager.getCurrentUser().getEmail());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()) { 
+                if(resultSet.getInt("count") == 1){
+                    int point = resultSet.getInt("current_points");
+                    pointsText.setText("Points: " + point);
+                }
+            }
+            
+            
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+    }
     
     @FXML
     private void homePage(MouseEvent event) {
@@ -171,15 +198,17 @@ public class MenuController implements Initializable {
             e.printStackTrace();
         }   
     }
-    
-    private void loadPage(String page){
+//    public BorderPane getBp2() {
+//        return bp2;
+//    }
+    public void loadPage(String page){
         Parent root = null;
         try{
             root = FXMLLoader.load(getClass().getResource(page + ".fxml"));
         }catch(IOException e){
             e.printStackTrace();
         }
-        bp2.setCenter(root);     
+        bp1.setCenter(root);     
     }
 
     @FXML

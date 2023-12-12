@@ -131,6 +131,7 @@ public class LoginController implements Initializable {
 
                         User user = new User(userEmail, username, userPassword, registration_date, current_points);
                         SessionManager.setCurrentUser(user);
+                        
                         loadingAP.setVisible(true);
                         loadingAP.managedProperty().bind(loadingAP.visibleProperty());
                         
@@ -195,7 +196,6 @@ public class LoginController implements Initializable {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, 800, 500);
         stage.setScene(scene);
-        stage.setTitle("Sign Up");
         stage.show();
     }
 

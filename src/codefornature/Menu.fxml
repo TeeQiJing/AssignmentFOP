@@ -20,12 +20,12 @@
                         <Image url="@images/user.png" />
                      </image>
                   </ImageView>
-                  <Text fx:id="usernameText" fill="WHITE" layoutX="16.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qi Jing Tee">
+                  <Text fx:id="usernameText" fill="WHITE" layoutX="16.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No User">
                      <font>
                         <Font name="Berlin Sans FB" size="19.0" />
                      </font>
                   </Text>
-                  <Text fx:id="pointsText" fill="WHITE" layoutX="16.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points : 0">
+                  <Text fx:id="pointsText" fill="WHITE" layoutX="16.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="pointText" text="Points : 0">
                      <font>
                         <Font name="Berlin Sans FB" size="19.0" />
                      </font>
@@ -107,36 +107,25 @@
          </children>
       </VBox>
    </left>
-   <center>
-      <BorderPane fx:id="bp2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
-         <center>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Home" BorderPane.alignment="CENTER">
-               <font>
-                  <Font name="Segoe UI" size="40.0" />
-               </font>
-            </Text>
-         </center>
-         <top>
-            <AnchorPane fx:id="minMaxClosebar" prefHeight="34.0" prefWidth="938.0" style="-fx-background-color: #dcfcf4;" BorderPane.alignment="CENTER">
-               <children>
-                  <ImageView fx:id="closeBtn" fitHeight="14.0" fitWidth="14.0" layoutX="917.0" layoutY="10.0" onMouseClicked="#closeBtnClicked" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: HAND;" AnchorPane.rightAnchor="7.4">
-                     <image>
-                        <Image url="@images/red.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="minBtn" fitHeight="14.0" fitWidth="14.0" layoutX="894.0" layoutY="10.0" onMouseClicked="#minBtnClicked" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: HAND;" AnchorPane.rightAnchor="29.0">
-                     <image>
-                        <Image url="@images/yellow.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="maxBtn" fitHeight="14.0" fitWidth="14.0" layoutX="870.0" layoutY="10.0" onMouseClicked="#maxBtnClicked" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: HAND;" AnchorPane.rightAnchor="50.0">
-                     <image>
-                        <Image url="@images/green.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-         </top>
-      </BorderPane>
-   </center>
+   <top>
+      <AnchorPane fx:id="minMaxClosebar" prefHeight="34.0" prefWidth="938.0" style="-fx-background-color: #dcfcf4;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="closeBtn" fitHeight="14.0" fitWidth="14.0" layoutX="917.0" layoutY="10.0" onMouseClicked="#closeBtnClicked" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: HAND;" AnchorPane.rightAnchor="7.4">
+               <image>
+                  <Image url="@images/red.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="minBtn" fitHeight="14.0" fitWidth="14.0" layoutX="894.0" layoutY="10.0" onMouseClicked="#minBtnClicked" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: HAND;" AnchorPane.rightAnchor="29.0">
+               <image>
+                  <Image url="@images/yellow.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="maxBtn" fitHeight="14.0" fitWidth="14.0" layoutX="870.0" layoutY="10.0" onMouseClicked="#maxBtnClicked" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: HAND;" AnchorPane.rightAnchor="50.0">
+               <image>
+                  <Image url="@images/green.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </top>
 </BorderPane>

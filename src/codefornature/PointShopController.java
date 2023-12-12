@@ -53,6 +53,19 @@ public class PointShopController implements Initializable {
 
     @FXML
     private void plantTree(ActionEvent event) {
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("PlantTree.fxml"));
+            Parent plantTreeNode = loader.load();
+            PlantTreeController plantTreeController = loader.getController();
+            
+            BorderPane bp1 = (BorderPane)buyMerchandiseBtn.getScene().getRoot();
+            
+            bp1.setCenter(plantTreeNode);    
+            plantTreeController.initializePage();
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
     
 }

@@ -25,6 +25,16 @@
                   <Image url="@images/leaf.png" />
                </image>
             </ImageView>
+            <Label layoutX="18.0" layoutY="25.0" prefHeight="38.0" prefWidth="172.0" style="-fx-text-fill: white;" text="Care For Nature," textFill="WHITE">
+               <font>
+                  <Font name="Segoe Script Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="104.0" layoutY="58.0" prefHeight="38.0" prefWidth="172.0" style="-fx-text-fill: white;" text="Save The Future" textFill="WHITE">
+               <font>
+                  <Font name="Segoe Script Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <Pane layoutX="400.0" prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: white;">
@@ -72,16 +82,6 @@
             </ImageView>
          </children>
       </Pane>
-      <Label layoutX="34.0" layoutY="33.0" prefHeight="38.0" prefWidth="172.0" style="-fx-text-fill: white;" text="Care For Nature," textFill="WHITE">
-         <font>
-            <Font name="Segoe Script Bold" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="96.0" layoutY="68.0" prefHeight="38.0" prefWidth="172.0" style="-fx-text-fill: white;" text="Save The Future" textFill="WHITE">
-         <font>
-            <Font name="Segoe Script Bold" size="18.0" />
-         </font>
-      </Label>
       <AnchorPane fx:id="loadingAP" layoutX="193.8" layoutY="100.0" prefHeight="324.0" prefWidth="394.0" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="193.8" AnchorPane.topAnchor="100.0">
          <children>
             <Label layoutX="112.0" layoutY="57.0" style="-fx-text-fill: black;" text="Loading..." textFill="#006666">

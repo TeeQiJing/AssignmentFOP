@@ -20,12 +20,12 @@
                         <Image url="@images/user.png" />
                      </image>
                   </ImageView>
-                  <Text fx:id="usernameText" fill="WHITE" layoutX="16.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No User">
+                  <Text fx:id="usernameText" cache="true" fill="WHITE" layoutX="16.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No User">
                      <font>
                         <Font name="Berlin Sans FB" size="19.0" />
                      </font>
                   </Text>
-                  <Text fx:id="pointsText" fill="WHITE" layoutX="16.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="pointText" text="Points : 0">
+                  <Text fx:id="pointsText" fill="WHITE" layoutX="16.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="pointText" text="No Points">
                      <font>
                         <Font name="Berlin Sans FB" size="19.0" />
                      </font>

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="gp" alignment="CENTER" hgap="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@trivia.css" vgap="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codefornature.TriviaController">
+<GridPane fx:id="gp" alignment="CENTER" hgap="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to right, #00b09b, #96c93d);" stylesheets="@trivia.css" vgap="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codefornature.TriviaController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -25,7 +25,7 @@
    <children>
       <Button alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="109.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="178.0" prefWidth="308.0" styleClass="dayBtn" text="Day 1" textAlignment="CENTER">
          <font>
-            <Font name="Segoe UI" size="36.0" />
+            <Font name="Segoe UI Bold" size="36.0" />
          </font>
       </Button>
       <Button alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="9.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="178.0" prefWidth="308.0" styleClass="dayBtn" text="Day 2" textAlignment="CENTER" GridPane.columnIndex="1">

@@ -50,6 +50,7 @@ public class TriviaQuesController implements Initializable {
             preparedStatement.setInt(1, quesNum);
             preparedStatement.setString(2, SessionManager.getCurrentUser().getEmail());
             resultSet = preparedStatement.executeQuery();
+            
             int attempts = 0;
             while(resultSet.next()) { 
                 if(resultSet.getInt("count") == 1){
@@ -201,7 +202,6 @@ public class TriviaQuesController implements Initializable {
     }
     
     public void setQuesNum(int dayNum){  
-        
         optionList = new ArrayList<>();
         optionList.clear();
         optionList.add("optionA");
@@ -210,7 +210,6 @@ public class TriviaQuesController implements Initializable {
         optionList.add("optionD");
         Collections.shuffle(optionList);
         
-//        String answer = "";
         this.quesNum = dayNum;
     }
     

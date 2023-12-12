@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2023 at 06:14 AM
+-- Generation Time: Dec 12, 2023 at 03:46 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -249,10 +249,7 @@ INSERT INTO `news` (`title`, `url`, `date`) VALUES
 ('Residents\' concerns over uncovered slurry lagoon', 'https://bbc.com/news/uk-england-cumbria-66541909', '2023-08-19'),
 ('Litter bins to be scrapped over cost concerns', 'https://bbc.com/news/uk-england-tees-66530188', '2023-08-17'),
 ('Sixty tonnes of rubbish removed from beaches', 'https://bbc.com/news/uk-england-cornwall-66528175', '2023-08-17'),
-('Egg farmer halves pollution levels', 'https://bbc.com/news/articles/cmmy23rrvgdo', '2023-08-17'),
-('Fly-tippers dump 15 fridges in Grimsby waterway', 'https://bbc.com/news/uk-england-humber-66522907', '2023-08-16'),
-('\'Alarming\' temperature rise in UK\'s largest lake', 'https://bbc.com/news/uk-northern-ireland-66516358', '2023-08-16'),
-('Struggling with asthma in world\'s most polluted city', 'https://bbc.com/news/world-asia-66496992', '2023-08-15');
+('Egg farmer halves pollution levels', 'https://bbc.com/news/articles/cmmy23rrvgdo', '2023-08-17');
 
 -- --------------------------------------------------------
 

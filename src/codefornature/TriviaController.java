@@ -86,26 +86,7 @@ public class TriviaController implements Initializable {
             
             BorderPane bp1 = (BorderPane)dayButton.getScene().getRoot();
             
-            
-            bp1.setCenter(questionNode);
-            
-           
-//            Connection conn = JConnection.Conn();
-//
-//            String sql = "SELECT *, count(*) AS count FROM user WHERE email = ?";
-//            PreparedStatement preparedStatement = conn.prepareStatement(sql);
-//
-//            preparedStatement.setString(1, SessionManager.getCurrentUser().getEmail());
-//            ResultSet resultSet = preparedStatement.executeQuery();
-//            while(resultSet.next()) { 
-//                if(resultSet.getInt("count") == 1){
-//                    int point = resultSet.getInt("current_points");
-//                    ((Label)bp1.lookup("#pointsText")).setText("Points: " + point);
-//                }
-//            }        
-            
-            
-            
+            bp1.setCenter(questionNode);    
             triviaQuesController.initializeQues();
 
         }catch(Exception e){
@@ -126,7 +107,6 @@ public class TriviaController implements Initializable {
                     dayNum = dayNum + 20;
                     dayButton.setText("Day " + dayNum);
                     setLockedDays(daysRegistered());
-                    
                 }
                 final int DayNum = dayNum;
                 dayButton.setOnMouseClicked(ev -> {

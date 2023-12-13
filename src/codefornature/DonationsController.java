@@ -48,46 +48,19 @@ public class DonationsController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
-        amountDonateTextField.setStyle("-fx-background-color: transparent; -fx-border-width: 0px 0px 1px 0px; -fx-border-color: rgb(0,102,102);");
-        ngoComboBox.setStyle("-fx-font-size: 20px; -fx-background-color: transparent; -fx-border-width: 0px 0px 1px 0px; -fx-border-color: rgb(0,102,102);");
+        PointShopController obj = new PointShopController();
+        obj.setFocusedStyle(amountDonateTextField);
+        obj.setFocusedStyle(ngoComboBox);
         
-        ngoComboBox.getItems().addAll(
-                "World Wildlife Fund", 
-                "World Agroforestry Centre",
-                "Greenpeace",
-                "Earth Justice",
-                "Nature Conservancy");
-//        ngoComboBox.setStyle("-fx-font-size: 20px; -fx-border-width:0px 0px 1px 0px; -fx-border-color: rgb(0,102,102); -fx-background-color: white;");
-        String hoverStyle = "-fx-background-color: rgb(13, 163, 166); -fx-background-radius: 50px;"; 
-        donateBtn.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                donateBtn.setStyle(hoverStyle);
-            }
-        });
-
-        // Remove the hover effect when the mouse exits the button.
-        donateBtn.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                donateBtn.setStyle("-fx-background-color: rgb(0, 102, 102); -fx-background-radius: 50px;");
-            }
-        });
+        ngoComboBox.getItems().addAll("World Wildlife Fund", "World Agroforestry Centre", "Greenpeace", "Earth Justice", "Nature Conservancy");
         
-        amountDonateTextField.addEventFilter(KeyEvent.KEY_TYPED, event -> {
-            if (!event.getCharacter().matches("[0-9]")) {
-                event.consume(); // Consume the event to prevent the character from being entered
-            }
-        });
-        
+        obj.setHoverStyle(donateBtn);
+        obj.setNumericalFilter(amountDonateTextField);
     }    
 
     @FXML
     private void donate(ActionEvent event) {
-        
-
-        if(ngoComboBox.getValue() == null || amountDonateTextField.getText().isEmpty()){
+        if(ngoComboBox.getValue() == null || amountDonateTextField.getText().isEmpty() || Integer.parseInt(amountDonateTextField.getText())==0){
             JOptionPane.showMessageDialog(new JFrame(), "Please fill in all fields! Donation amount must be at least $1", "Dialog", JOptionPane.ERROR_MESSAGE);
             
         }else{

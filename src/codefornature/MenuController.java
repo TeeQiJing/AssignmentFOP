@@ -168,14 +168,7 @@ public class MenuController implements Initializable {
     
     @FXML
     private void logOutPage(MouseEvent event) throws Exception{
-        if(SessionManager.isUserLoggedIn()){
-            User currentUser = SessionManager.getCurrentUser();
-            currentUser.setUsername(null);
-            currentUser.setEmail(null);
-            currentUser.setPassword(null);
-            currentUser.setRegistrationDate(null);
-            currentUser.setCurrentPoint(0);
-        }
+        
 
         try {
             // Load the pop-out logout FXML file

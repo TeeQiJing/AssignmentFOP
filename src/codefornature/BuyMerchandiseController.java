@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package codefornature;
 
 import java.io.BufferedWriter;
@@ -13,12 +9,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -29,13 +25,8 @@ import javafx.scene.text.Text;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-/**
- * FXML Controller class
- *
- * @author GIGA
- */
 public class BuyMerchandiseController implements Initializable {
-
+    
     @FXML
     private Button buyBtn;
     @FXML
@@ -45,48 +36,20 @@ public class BuyMerchandiseController implements Initializable {
     @FXML
     private TextField addressTextField;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }    
     
     public void initializePage(){
-        quantityTextField.setStyle("-fx-background-color: transparent; -fx-border-width: 0px 0px 1px 0px; -fx-border-color: rgb(0,102,102);");
-        addressTextField.setStyle("-fx-background-color: transparent; -fx-border-width: 0px 0px 1px 0px; -fx-border-color: rgb(0,102,102);");
-        merchandiseComboBox.setStyle("-fx-font-size: 20px; -fx-background-color: transparent; -fx-border-width: 0px 0px 1px 0px; -fx-border-color: rgb(0,102,102);");
+        PointShopController obj = new PointShopController();
+        obj.setFocusedStyle(quantityTextField);
+        obj.setFocusedStyle(addressTextField);
+        obj.setFocusedStyle(merchandiseComboBox);
         
-        merchandiseComboBox.getItems().addAll(
-                "merch-1", 
-                "merch-2",
-                "merch-3",
-                "merch-4",
-                "merch-5");
-        String hoverStyle = "-fx-background-color: rgb(13, 163, 166); -fx-background-radius: 50px;"; 
+        merchandiseComboBox.getItems().addAll("merch-1", "merch-2", "merch-3", "merch-4", "merch-5");
         
-        buyBtn.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                buyBtn.setStyle(hoverStyle);
-            }
-        });
-
-        // Remove the hover effect when the mouse exits the button.
-        buyBtn.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                buyBtn.setStyle("-fx-background-color: rgb(0, 102, 102); -fx-background-radius: 50px;");
-            }
-        });
-        
-        quantityTextField.addEventFilter(KeyEvent.KEY_TYPED, event -> {
-            if (!event.getCharacter().matches("[0-9]")) {
-                event.consume(); // Consume the event to prevent the character from being entered
-            }
-        });
-    
+        obj.setHoverStyle(buyBtn);
+        obj.setNumericalFilter(quantityTextField);
     }
 
     @FXML

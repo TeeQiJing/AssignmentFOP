@@ -41,22 +41,9 @@ public class PlantTreeController implements Initializable {
         
     }    
     public void initializePage(){
-        String hoverStyle = "-fx-background-color: rgb(13, 163, 166); -fx-background-radius: 50px;"; 
-        treeNameTextField.setStyle("-fx-background-color: transparent; -fx-border-width: 0px 0px 1px 0px; -fx-border-color: rgb(0,102,102);");
-        plantBtn.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                plantBtn.setStyle(hoverStyle);
-            }
-        });
-
-        // Remove the hover effect when the mouse exits the button.
-        plantBtn.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                plantBtn.setStyle("-fx-background-color: rgb(0, 102, 102); -fx-background-radius: 50px;");
-            }
-        });
+        PointShopController obj = new PointShopController();
+        obj.setFocusedStyle(treeNameTextField);
+        obj.setHoverStyle(plantBtn);
     }
 
     @FXML

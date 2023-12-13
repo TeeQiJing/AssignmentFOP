@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Other/File.java to edit this template
- */
 package codefornature;
 
-/**
- *
- * @author GIGA
- */
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -19,7 +11,6 @@ import java.util.Date;
 
 public class BBCNews {
     public static void UpdateNews() {
-
         try{
             Connection conn = JConnection.Conn();
             String deleteSql = "DELETE FROM news";

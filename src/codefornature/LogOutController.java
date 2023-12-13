@@ -67,6 +67,14 @@ public class LogOutController implements Initializable {
                     stage.close();
                 }
             }
+            if(SessionManager.isUserLoggedIn()){
+                User currentUser = SessionManager.getCurrentUser();
+                currentUser.setUsername(null);
+                currentUser.setEmail(null);
+                currentUser.setPassword(null);
+                currentUser.setRegistrationDate(null);
+                currentUser.setCurrentPoint(0);
+            }
         
             Stage currentStage = (Stage)((Node)event.getSource()).getScene().getWindow();
             currentStage.close();

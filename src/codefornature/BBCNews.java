@@ -26,7 +26,7 @@ public class BBCNews {
             PreparedStatement statement = conn.prepareStatement(deleteSql);
             statement.executeUpdate();
             
-            int pages = 10;
+            int pages = 17;
             int count = 0;
             
             String str = "";
@@ -48,7 +48,10 @@ public class BBCNews {
                          
                     if(newsDate.equals(""))
                         continue;
-                    else{         
+                    else{  
+                        if (count>=300){
+                            break;
+                        }
                         // Parse the string to java.util.Date
                         Date parsedDate = NewsDate.parseDateString(newsDate);
 

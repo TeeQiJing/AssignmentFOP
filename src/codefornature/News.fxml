@@ -1,16 +1,696 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="389.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-   <center>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="News" BorderPane.alignment="CENTER">
+<GridPane fx:id="gp" hgap="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="602.0" style="-fx-background-color: linear-gradient(to right, #00b09b, #96c93d);" stylesheets="@news.css" vgap="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codefornature.NewsController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="170.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="170.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="170.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="170.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="-Infinity" minHeight="0.0" prefHeight="15.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <SplitPane dividerPositions="0.8398058252427184" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-radius: 10px; -fx-background-color: #C1E1C1;" styleClass="SplitPane">
+        <items>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-width: 0;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="news1" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="122.0" text="Label" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding></Label>
+               </children>
+            </GridPane>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="94.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Hyperlink fx:id="link1" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="118.0" text="Hyperlink" wrapText="true" />
+               </children>
+            </GridPane>
+        </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.8398058252427184" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #D9F0D9; -fx-background-radius: 10px;" styleClass="SplitPane" GridPane.columnIndex="1">
+         <items>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="news2" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="122.0" text="Label" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding></Label>
+               </children>
+            </GridPane>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="94.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Hyperlink fx:id="link2" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="118.0" text="Hyperlink" wrapText="true" />
+               </children>
+            </GridPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.8398058252427184" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #D9F0D9; -fx-background-radius: 10px;" styleClass="SplitPane" GridPane.columnIndex="2">
+         <items>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="news3" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="122.0" text="Label" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding></Label>
+               </children>
+            </GridPane>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="94.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Hyperlink fx:id="link3" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="118.0" text="Hyperlink" wrapText="true" />
+               </children>
+            </GridPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.8398058252427184" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #D9F0D9; -fx-background-radius: 10px;" styleClass="SplitPane" GridPane.columnIndex="3">
+         <items>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="news4" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="122.0" text="Label" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding></Label>
+               </children>
+            </GridPane>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="94.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Hyperlink fx:id="link4" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="118.0" text="Hyperlink" wrapText="true" />
+               </children>
+            </GridPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.8398058252427184" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #F0FFF0; -fx-background-radius: 10px;" styleClass="SplitPane" GridPane.columnIndex="4">
+         <items>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="news5" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="122.0" text="Label" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding></Label>
+               </children>
+            </GridPane>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="94.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Hyperlink fx:id="link5" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="118.0" text="Hyperlink" wrapText="true" />
+               </children>
+            </GridPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.8398058252427184" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-radius: 10px; -fx-background-color: #C1E1C1;" styleClass="SplitPane" GridPane.rowIndex="1">
+         <items>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="news6" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="122.0" text="Label" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding></Label>
+               </children>
+            </GridPane>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="94.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Hyperlink fx:id="link6" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="118.0" text="Hyperlink" wrapText="true" />
+               </children>
+            </GridPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.8398058252427184" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #D9F0D9; -fx-background-radius: 10px;" styleClass="SplitPane" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <items>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="news7" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="122.0" text="Label" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding></Label>
+               </children>
+            </GridPane>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="94.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Hyperlink fx:id="link7" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="118.0" text="Hyperlink" wrapText="true" />
+               </children>
+            </GridPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.8398058252427184" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #D9F0D9; -fx-background-radius: 10px;" styleClass="SplitPane" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <items>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="news8" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="122.0" text="Label" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding></Label>
+               </children>
+            </GridPane>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="94.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Hyperlink fx:id="link8" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="118.0" text="Hyperlink" wrapText="true" />
+               </children>
+            </GridPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.8398058252427184" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #D9F0D9; -fx-background-radius: 10px;" styleClass="SplitPane" GridPane.columnIndex="3" GridPane.rowIndex="1">
+         <items>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="news9" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="122.0" text="Label" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding></Label>
+               </children>
+            </GridPane>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="94.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Hyperlink fx:id="link9" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="118.0" text="Hyperlink" wrapText="true" />
+               </children>
+            </GridPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.8398058252427184" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #F0FFF0; -fx-background-radius: 10px;" styleClass="SplitPane" GridPane.columnIndex="4" GridPane.rowIndex="1">
+         <items>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="news10" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="122.0" text="Label" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="94.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Hyperlink fx:id="link10" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="118.0" text="Hyperlink" wrapText="true" />
+               </children>
+            </GridPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.8398058252427184" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-radius: 10px; -fx-background-color: #C1E1C1;" styleClass="SplitPane" GridPane.rowIndex="2">
+         <items>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="news11" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="122.0" text="Label" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="94.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Hyperlink fx:id="link11" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="118.0" text="Hyperlink" wrapText="true" />
+               </children>
+            </GridPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.8398058252427184" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #D9F0D9; -fx-background-radius: 10px;" styleClass="SplitPane" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <items>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="news12" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="122.0" text="Label" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="94.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Hyperlink fx:id="link12" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="118.0" text="Hyperlink" wrapText="true" />
+               </children>
+            </GridPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.8398058252427184" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #D9F0D9; -fx-background-radius: 10px;" styleClass="SplitPane" GridPane.columnIndex="2" GridPane.rowIndex="2">
+         <items>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="news13" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="122.0" text="Label" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="94.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Hyperlink fx:id="link13" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="118.0" text="Hyperlink" wrapText="true" />
+               </children>
+            </GridPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.8398058252427184" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #D9F0D9; -fx-background-radius: 10px;" styleClass="SplitPane" GridPane.columnIndex="3" GridPane.rowIndex="2">
+         <items>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="news14" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="122.0" text="Label" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="94.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Hyperlink fx:id="link14" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="118.0" text="Hyperlink" wrapText="true" />
+               </children>
+            </GridPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.8398058252427184" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #F0FFF0; -fx-background-radius: 10px;" styleClass="SplitPane" GridPane.columnIndex="4" GridPane.rowIndex="2">
+         <items>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="news15" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="122.0" text="Label" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="94.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Hyperlink fx:id="link15" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="118.0" text="Hyperlink" wrapText="true" />
+               </children>
+            </GridPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.8398058252427184" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-radius: 10px; -fx-background-color: #C1E1C1;" styleClass="SplitPane" GridPane.rowIndex="3">
+         <items>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="news16" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="122.0" text="Label" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="94.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Hyperlink fx:id="link16" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="118.0" text="Hyperlink" wrapText="true" />
+               </children>
+            </GridPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.8398058252427184" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #D9F0D9; -fx-background-radius: 10px;" styleClass="SplitPane" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <items>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="news17" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="122.0" text="Label" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="94.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Hyperlink fx:id="link17" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="118.0" text="Hyperlink" wrapText="true" />
+               </children>
+            </GridPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.8398058252427184" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #D9F0D9; -fx-background-radius: 10px;" styleClass="SplitPane" GridPane.columnIndex="2" GridPane.rowIndex="3">
+         <items>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="news18" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="122.0" text="Label" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="94.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Hyperlink fx:id="link18" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="118.0" text="Hyperlink" wrapText="true" />
+               </children>
+            </GridPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.8398058252427184" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #D9F0D9; -fx-background-radius: 10px;" styleClass="SplitPane" GridPane.columnIndex="3" GridPane.rowIndex="3">
+         <items>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="news19" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="122.0" text="Label" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="94.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Hyperlink fx:id="link19" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="118.0" text="Hyperlink" wrapText="true" />
+               </children>
+            </GridPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.8398058252427184" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #F0FFF0; -fx-background-radius: 10px;" styleClass="SplitPane" GridPane.columnIndex="4" GridPane.rowIndex="3">
+         <items>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="news20" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="122.0" text="Label" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="94.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Hyperlink fx:id="link20" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="118.0" text="Hyperlink" wrapText="true" />
+               </children>
+            </GridPane>
+         </items>
+      </SplitPane>
+      <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#nextBtn" prefHeight="10.0" prefWidth="96.0" style="-fx-background-color: #DDDDDD; -fx-background-radius: 5px;" text="Next" textFill="#728a73" GridPane.columnIndex="3" GridPane.rowIndex="4">
          <font>
-            <Font name="Segoe UI" size="40.0" />
-         </font>
-      </Text>
-   </center>
-</BorderPane>
+            <Font name="Segoe UI Bold" size="12.0" />
+         </font></Button>
+      <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #DDDDDD; -fx-background-radius: 5px;" text="Nature" textFill="#0cac5c" GridPane.columnIndex="2" GridPane.rowIndex="4">
+         <font>
+            <Font name="Segoe UI Bold" size="12.0" />
+         </font></Button>
+      <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#previousBtn" prefHeight="26.0" prefWidth="107.0" style="-fx-background-color: #DDDDDD; -fx-background-radius: 5px;" text="Previous" textFill="#728a73" GridPane.columnIndex="1" GridPane.rowIndex="4">
+         <font>
+            <Font name="Segoe UI Bold" size="12.0" />
+         </font></Button>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</GridPane>

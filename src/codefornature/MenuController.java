@@ -1,11 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package codefornature;
 
-//import com.sun.javafx.logging.Logger;
-//import com.sun.javafx.logging.PlatformLogger.Level;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -32,11 +26,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 
-/**
- * FXML Controller class
- *
- * @author GIGA
- */
 public class MenuController implements Initializable {
 
     private double x=0, y=0;
@@ -63,7 +52,6 @@ public class MenuController implements Initializable {
     private Button logOutBtn;
     @FXML
     private BorderPane bp1;
-//    private BorderPane bp2;
     @FXML
     private ImageView closeBtn;
     @FXML
@@ -74,10 +62,7 @@ public class MenuController implements Initializable {
     private VBox menuVBox;
     @FXML
     private AnchorPane minMaxClosebar; 
-    
-    /**
-     * Initializes the controller class.
-     */
+
     
     private void hoverEffect(Button btn){
         btn.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {

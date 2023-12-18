@@ -60,10 +60,6 @@ public class LoginController implements Initializable {
     private AnchorPane loadingAP;
     @FXML
     private ProgressIndicator progressIndicator;
-
-    /**
-     * Initializes the controller class.
-     */
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -122,7 +118,6 @@ public class LoginController implements Initializable {
                 ResultSet resultSet = statement.executeQuery(sql);
                 while(resultSet.next()){
                     if(resultSet.getInt("count") == 1){
-//                        System.out.println("Animation finished");
                         String userEmail = resultSet.getString("email");
                         String username = resultSet.getString("username");
                         String registration_date = resultSet.getString("registration_date");

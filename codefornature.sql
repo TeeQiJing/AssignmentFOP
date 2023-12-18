@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2023 at 03:46 PM
+-- Generation Time: Dec 18, 2023 at 03:28 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -24,6 +24,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `home`
+--
+
+CREATE TABLE `home` (
+  `email` varchar(255) NOT NULL,
+  `checked` varchar(255) NOT NULL,
+  `date` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `home`
+--
+
+INSERT INTO `home` (`email`, `checked`, `date`) VALUES
+('bobby123@gmail.com', '2023-12-18', '2023-12-18'),
+('lauduanhang@gmail.com', '2023-12-18', '2023-12-18'),
+('qibin041227@gmail.com', '2023-12-18', '2023-12-18'),
+('qijingtee1227@gmail.com', '2023-12-18', '2023-12-18'),
+('sasa@gmail.com', '2023-12-18', '2023-12-18'),
+('test123@gmail.com', '2023-12-18', '2023-12-18'),
+('zhenyu123@gmail.com', '2023-12-18', '2023-12-18');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `news`
 --
 
@@ -38,6 +63,18 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`title`, `url`, `date`) VALUES
+('How the war changed Russia’s climate agenda', 'https://bbc.com/news/world-europe-67637803', '2023-12-10'),
+('How divers are using antibiotics to save a massive coral reef', 'https://bbc.com/news/world-latin-america-67647402', '2023-12-10'),
+('Cornish company wins top environmental award', 'https://bbc.com/news/uk-england-cornwall-67637023', '2023-12-09'),
+('Part of sea wall removed to help saltmarsh', 'https://bbc.com/news/uk-england-essex-67659934', '2023-12-09'),
+('Homes get free hot water from computer heat', 'https://bbc.com/news/uk-england-surrey-67590284', '2023-12-08'),
+('Gas smell over Teesside being investigated', 'https://bbc.com/news/uk-england-tees-67654895', '2023-12-08'),
+('Heavy rains leave trail of destruction in Indian city', 'https://bbc.com/news/world-asia-india-67645286', '2023-12-07'),
+('Condoms, tampons and wipes washing up on beach', 'https://bbc.com/news/uk-england-tees-67630378', '2023-12-07'),
+('Cycle bridge installed over A30 at Chiverton', 'https://bbc.com/news/uk-england-cornwall-67640749', '2023-12-06'),
+('\'Depressing\' to find disposable vapes on riverbed', 'https://bbc.com/news/uk-england-wiltshire-67636437', '2023-12-06'),
+('Olive oil price skyrockets as Spanish drought bites', 'https://bbc.com/news/world-europe-67565503', '2023-12-06'),
+('Over 200 areas missing out on benefits of trees', 'https://bbc.com/news/uk-northern-ireland-67617106', '2023-12-05'),
 ('\'Protecting the Earth is a religious duty\'', 'https://bbc.com/news/newsbeat-67581447', '2023-12-04'),
 ('Housing development worth £33.5m approved', 'https://bbc.com/news/uk-england-devon-67615445', '2023-12-04'),
 ('Panel proposed to plant trees after Storm Ciarán', 'https://bbc.com/news/articles/cqepdlz5mrjo', '2023-12-04'),
@@ -56,7 +93,6 @@ INSERT INTO `news` (`title`, `url`, `date`) VALUES
 ('New forest will be planted in Tees Valley by 2025', 'https://bbc.com/news/uk-england-tees-67545941', '2023-11-27'),
 ('Link road cost rises to £274m', 'https://bbc.com/news/uk-england-norfolk-67525759', '2023-11-27'),
 ('Beach gets green light after sewage plant spillage', 'https://bbc.com/news/articles/cd1pzr4nex7o', '2023-11-27'),
-('A really simple guide to climate change', 'https://bbc.com/news/science-environment-24021772', '2023-11-27'),
 ('Protesters say Lough Neagh problems \'not over\'', 'https://bbc.com/news/uk-northern-ireland-67538417', '2023-11-26'),
 ('Projects to remove chemicals from rivers underway', 'https://bbc.com/news/articles/c72q19xn35yo', '2023-11-26'),
 ('Repairs planned for Devil\'s Point tidal pool', 'https://bbc.com/news/uk-england-devon-67485472', '2023-11-26'),
@@ -249,7 +285,84 @@ INSERT INTO `news` (`title`, `url`, `date`) VALUES
 ('Residents\' concerns over uncovered slurry lagoon', 'https://bbc.com/news/uk-england-cumbria-66541909', '2023-08-19'),
 ('Litter bins to be scrapped over cost concerns', 'https://bbc.com/news/uk-england-tees-66530188', '2023-08-17'),
 ('Sixty tonnes of rubbish removed from beaches', 'https://bbc.com/news/uk-england-cornwall-66528175', '2023-08-17'),
-('Egg farmer halves pollution levels', 'https://bbc.com/news/articles/cmmy23rrvgdo', '2023-08-17');
+('Egg farmer halves pollution levels', 'https://bbc.com/news/articles/cmmy23rrvgdo', '2023-08-17'),
+('Fly-tippers dump 15 fridges in Grimsby waterway', 'https://bbc.com/news/uk-england-humber-66522907', '2023-08-16'),
+('\'Alarming\' temperature rise in UK\'s largest lake', 'https://bbc.com/news/uk-northern-ireland-66516358', '2023-08-16'),
+('Struggling with asthma in world\'s most polluted city', 'https://bbc.com/news/world-asia-66496992', '2023-08-15'),
+('Lottery money will enhance water park\'s wildlife', 'https://bbc.com/news/uk-england-gloucestershire-66501851', '2023-08-15'),
+('River Wye waste not caused by farming, says NFU', 'https://bbc.com/news/uk-wales-66440390', '2023-08-14'),
+('£9.5m sewage project protecting county’s rivers', 'https://bbc.com/news/uk-england-somerset-66495920', '2023-08-14'),
+('Biggest fresh water lake in British Isles \'dying\'', 'https://bbc.com/news/uk-northern-ireland-66475360', '2023-08-12'),
+('Oil taken off \'time bomb\' tanker abandoned off Yemen', 'https://bbc.com/news/world-middle-east-66481414', '2023-08-11'),
+('Huge sewage discharge blamed on \'intense\' rainfall', 'https://bbc.com/news/articles/c2qd70k2162o', '2023-08-11'),
+('How is sign language adapting to climate change?', 'https://bbc.com/news/science-environment-66464437', '2023-08-11'),
+('Bid to block solar farm at High Court fails', 'https://bbc.com/news/articles/c6pwk021e87o', '2023-08-10'),
+('Cement works plans £400m carbon capture facility', 'https://bbc.com/news/uk-wales-66453932', '2023-08-10'),
+('Zac Goldsmith tempted to support Labour. Video, 00:00:43 Zac Goldsmith tempted to support Labour', 'https://bbc.com/news/uk-politics-66450086', '2023-08-09'),
+('First zero-emission buses hit the streets of Derry', 'https://bbc.com/news/uk-northern-ireland-66437036', '2023-08-08'),
+('Beyond Meat hit as cost of living squeezes shoppers', 'https://bbc.com/news/business-66435863', '2023-08-08'),
+('Some 600 fish relocated for M25 upgrade', 'https://bbc.com/news/uk-england-essex-66428589', '2023-08-07'),
+('UK\'s largest urban farm finds first season tough', 'https://bbc.com/news/uk-england-manchester-66403384', '2023-08-07'),
+('Councils get £300,000 to pay for tree planting', 'https://bbc.com/news/uk-england-wiltshire-66372269', '2023-08-06'),
+('£40k fundraiser launched to protect city woodland', 'https://bbc.com/news/uk-england-bristol-66397766', '2023-08-05'),
+('Disaster averted as burnt car carrier reaches port', 'https://bbc.com/news/world-europe-66393507', '2023-08-03'),
+('Amazon deforestation falls to lowest level since 2017', 'https://bbc.com/news/world-latin-america-66393360', '2023-08-03'),
+('Net zero sceptics warm to Sunak climate shift', 'https://bbc.com/news/uk-politics-66388718', '2023-08-03'),
+('Viking Bay pollution warning enters second day', 'https://bbc.com/news/articles/cv2p1zggn9do', '2023-08-02'),
+('I care about reaching net zero, Sunak insists', 'https://bbc.com/news/uk-politics-66382265', '2023-08-02'),
+('Pollution warning issued to Viking Bay swimmers', 'https://bbc.com/news/articles/c1vk64e562vo', '2023-08-01'),
+('Blue-green algae warnings for beaches are removed', 'https://bbc.com/news/uk-northern-ireland-66361944', '2023-07-31'),
+('PM to meet leaders over energy security plans', 'https://bbc.com/news/uk-politics-66350481', '2023-07-30'),
+('Environmental groups warn PM over green pledges', 'https://bbc.com/news/uk-politics-66350486', '2023-07-29'),
+('Portrush beaches red-flagged for toxic algae risk', 'https://bbc.com/news/uk-northern-ireland-66340899', '2023-07-28'),
+('Bid to revoke peninsula theme park planning status', 'https://bbc.com/news/articles/czqynzw3z43o', '2023-07-28'),
+('Could \'ethical\' Airbnb rival preserve communities?', 'https://bbc.com/news/uk-wales-66232498', '2023-07-28'),
+('Dragons’ Den star warns time running out to act on climate', 'https://bbc.com/news/business-66293289', '2023-07-26'),
+('Petrol and diesel car ban immovable, says Gove', 'https://bbc.com/news/uk-politics-66301051', '2023-07-25'),
+('Rewilding project awarded £100k to expand', 'https://bbc.com/news/articles/c9xj7xz6r53o', '2023-07-25'),
+('Bayer expects $2.8bn hit as weedkiller sales fall', 'https://bbc.com/news/business-66297589', '2023-07-25'),
+('\'Habitat bank\' plan aims to boost biodiversity', 'https://bbc.com/news/uk-england-south-yorkshire-66292274', '2023-07-25'),
+('Rhodes tourist felt she had been left to die', 'https://bbc.com/news/articles/c3ge33x6w32o', '2023-07-24'),
+('Sunak \'pragmatic\' about meeting net zero target. Video, 00:00:39 Sunak \'pragmatic\' about meeting net zero target', 'https://bbc.com/news/uk-politics-66290539', '2023-07-24'),
+('Meet London\'s youngest eco-warrior. Video, 00:01:25 Meet London\'s youngest eco-warrior', 'https://bbc.com/news/uk-england-london-66247311', '2023-07-24'),
+('Beach clean-up sees plastic turned into art', 'https://bbc.com/news/uk-england-somerset-66274665', '2023-07-21'),
+('Rare bird lured to Kent marshland to escape extreme heat', 'https://bbc.com/news/articles/c5138mvyv51o', '2023-07-21'),
+('Watch the moment divers free trapped whale sharks. Video, 00:01:00 Watch the moment divers free trapped whale sharks', 'https://bbc.com/news/world-asia-66254335', '2023-07-20'),
+('River to be \'re-meandered\' into more natural shape', 'https://bbc.com/news/uk-england-wiltshire-66238098', '2023-07-20'),
+('Minister makes \'vote of confidence\' in Sizewell C', 'https://bbc.com/news/uk-england-suffolk-66240489', '2023-07-19'),
+('Kayaker hails \'poo-centric\' expedition as a success', 'https://bbc.com/news/uk-england-suffolk-66232629', '2023-07-18'),
+('Tip operator to dump more hazardous waste at site', 'https://bbc.com/news/uk-england-leeds-66230832', '2023-07-18'),
+('Gardens in Tendring retain Green Flag Awards', 'https://bbc.com/news/uk-england-essex-66225529', '2023-07-18'),
+('Virtual fencing introduced for grazing Mendip cows', 'https://bbc.com/news/articles/cz937ppv2g5o', '2023-07-17'),
+('Is your pet fish damaging the environment?', 'https://bbc.com/news/uk-wales-66201178', '2023-07-15'),
+('O macarrão feito de insetos que divide italianos', 'https://bbc.com/portuguese/articles/c030pd9dz4po', '2023-07-14'),
+('\'Alarming and unprecedented\' Irish bird flu warning', 'https://bbc.com/news/articles/cglyrzx8rz7o', '2023-07-14'),
+('Can these fish tanks prove radioactive water is safe? Video, 00:01:36 Can these fish tanks prove radioactive water is safe?', 'https://bbc.com/news/world-asia-66191784', '2023-07-13'),
+('Beach industrial waste clearance signed off', 'https://bbc.com/news/uk-england-tyne-66187599', '2023-07-13'),
+('Prosthetic legs made from binned household plastic', 'https://bbc.com/news/uk-wales-66174324', '2023-07-13'),
+('Welsh Water downgraded over sewage pollution', 'https://bbc.com/news/uk-wales-66173170', '2023-07-12'),
+('New global engine maker plans UK headquarters', 'https://bbc.com/news/business-66172158', '2023-07-12'),
+('Prince William visits woodland set for expansion', 'https://bbc.com/news/uk-england-devon-66169614', '2023-07-11'),
+('Farmers warned after beetle larvae pest found', 'https://bbc.com/news/articles/cp60e821lxpo', '2023-07-11'),
+('New Forest pond reopens after restoration work', 'https://bbc.com/news/uk-england-hampshire-66153314', '2023-07-11'),
+('Botanical gardens reveal £13m revamp', 'https://bbc.com/news/uk-england-birmingham-66152760', '2023-07-10'),
+('The rush for nickel: \'They are destroying our future\'', 'https://bbc.com/news/world-asia-66131451', '2023-07-10'),
+('Toxic algae warning extended along north coast', 'https://bbc.com/news/uk-northern-ireland-66148033', '2023-07-09'),
+('Clean air zone delayed again over bus technology', 'https://bbc.com/news/uk-england-manchester-66142388', '2023-07-09'),
+('Green bin charge plans opposed by thousands', 'https://bbc.com/news/uk-england-suffolk-66118515', '2023-07-06'),
+('Ferrets and rats targeted in island puffin battle', 'https://bbc.com/news/uk-northern-ireland-66088620', '2023-07-05'),
+('Memo reveals pressure on UK climate finance pledge', 'https://bbc.com/news/uk-66105901', '2023-07-05'),
+('Thames Water fined £3.3m over river sewage', 'https://bbc.com/news/uk-england-sussex-66097906', '2023-07-04'),
+('Ancient Dartmoor woodland to double in size', 'https://bbc.com/news/uk-england-devon-66096431', '2023-07-04'),
+('Power plant could lose subsidies over compliance', 'https://bbc.com/news/uk-england-york-north-yorkshire-66066109', '2023-07-04'),
+('Plan to protect South Yorkshire\'s green spaces', 'https://bbc.com/news/uk-england-south-yorkshire-66091669', '2023-07-04'),
+('Water firm\'s pollution turned river black - court', 'https://bbc.com/news/uk-england-sussex-66088798', '2023-07-03'),
+('Probe launched after human poo dumped in river', 'https://bbc.com/news/uk-wales-66091119', '2023-07-03'),
+('June was hottest in Jersey since 1976 - forecasters', 'https://bbc.com/news/articles/cy753ly5d23o', '2023-07-03'),
+('New Zealand bans plastic bags for fresh produce', 'https://bbc.com/news/business-66083337', '2023-07-03'),
+('Sex life of rare \'leopard-print\' frog revealed', 'https://bbc.com/news/science-environment-66001590', '2023-07-01'),
+('Humans hundreds of times \'deadlier\' than sharks', 'https://bbc.com/news/science-environment-66058976', '2023-06-30'),
+('EU court finds Ireland failed to follow nature laws', 'https://bbc.com/news/articles/cy975d7wle9o', '2023-06-30');
 
 -- --------------------------------------------------------
 
@@ -302,9 +415,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`email`, `username`, `password`, `registration_date`, `current_points`) VALUES
-('bobby123@gmail.com', 'Bobby', 'bobby123', '14/11/2023', 0),
+('bobby123@gmail.com', 'Bobby', 'bobby123', '14/11/2023', 24),
 ('lauduanhang@gmail.com', 'Lau Duan Hang', 'duanhang', '06/11/2023', 0),
-('qibin041227@gmail.com', 'qibin041227', 'bin12345', '01/11/2023', 0),
+('qibin041227@gmail.com', 'qibin041227', 'bin12345', '01/11/2023', 101),
 ('qijingtee1227@gmail.com', 'qijingtee1227', 'jing1234', '01/11/2023', 0),
 ('sasa@gmail.com', 'Sasa', 'sasa1234', '05/11/2023', 0),
 ('test123@gmail.com', 'Test', 'test0000', '08/12/2023', 0);
@@ -322,8 +435,32 @@ CREATE TABLE `user_trivia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `user_trivia`
+--
+
+INSERT INTO `user_trivia` (`email`, `id`, `attempts`) VALUES
+('bobby123@gmail.com', 1, 2),
+('bobby123@gmail.com', 2, 2),
+('qibin041227@gmail.com', 1, 2),
+('qibin041227@gmail.com', 2, 2),
+('qibin041227@gmail.com', 3, 2),
+('qibin041227@gmail.com', 4, 2),
+('qibin041227@gmail.com', 5, 2),
+('qibin041227@gmail.com', 6, 2),
+('qibin041227@gmail.com', 7, 2),
+('qibin041227@gmail.com', 8, 2),
+('qibin041227@gmail.com', 9, 2),
+('qibin041227@gmail.com', 10, 2);
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `home`
+--
+ALTER TABLE `home`
+  ADD PRIMARY KEY (`email`);
 
 --
 -- Indexes for table `trivia`

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package codefornature;
 
 import java.io.IOException;
@@ -30,11 +26,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import java.sql.SQLException;
 
-/**
- * FXML Controller class
- *
- * @author GIGA
- */
 public class HomeController implements Initializable {
     static String linkArray[]=new String[5];
     @FXML
@@ -82,9 +73,6 @@ public class HomeController implements Initializable {
     @FXML
     private BorderPane bpChanging;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -97,9 +85,9 @@ public class HomeController implements Initializable {
             testUser(currentEmail);
             whatsUpText.setText("What\'s up! "+currentUser.getUsername());
         }
-        else{
+        else
             whatsUpText.setText("What\'s up! ");
-        }
+        
         try{
             Statement statement=conn.createStatement();
             String sql= "UPDATE `home` SET `date` = '"+time+"' WHERE `email` = '" + currentEmail + "'" ;
@@ -163,12 +151,15 @@ public class HomeController implements Initializable {
                 preparedStatementHome.setString(2,SessionManager.getCurrentUser().getEmail());
                 preparedStatementHome.executeUpdate();
             }
+            
             String updateUserSql="UPDATE user SET current_points = (current_points + ?) WHERE email = ?";
+            
             try(PreparedStatement preparedStatementUser=conn.prepareStatement(updateUserSql)){
                 preparedStatementUser.setInt(1, 1);
                 preparedStatementUser.setString(2,SessionManager.getCurrentUser().getEmail());
                 preparedStatementUser.executeUpdate();
             }
+            
             checkInBtn.setVisible(false);
             checkInText.setText("Great to see you here! Welcome!");
             Statement statement=conn.createStatement();
@@ -179,6 +170,7 @@ public class HomeController implements Initializable {
                 BorderPane b1 = (BorderPane)seeSee.getScene().getRoot();
                 ((Text)b1.lookup("#pointsText")).setText("Points: " + point);
             }
+            
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -217,9 +209,6 @@ public class HomeController implements Initializable {
         return formatted;
     }
     public static void openLink(String url) {
-    // Implement the logic to open the link, e.g., using java.awt.Desktop
-    // You can also use HostServices to open the link in the default web browser
-    // Note: In a full application, you should handle exceptions appropriately
         java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
         try {
             desktop.browse(new java.net.URI(url));

@@ -31,9 +31,7 @@ public class OkWindowController implements Initializable {
     private double x=0, y=0;
     private Stage stage;
 
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

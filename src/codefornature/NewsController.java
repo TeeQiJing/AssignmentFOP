@@ -247,7 +247,7 @@ public class NewsController implements Initializable {
             e.printStackTrace();
         } 
     }
-        private void openLink(String url) {
+        public static void openLink(String url) {
         // Implement the logic to open the link, e.g., using java.awt.Desktop
         // You can also use HostServices to open the link in the default web browser
         // Note: In a full application, you should handle exceptions appropriately

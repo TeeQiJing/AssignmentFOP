@@ -80,7 +80,7 @@ public class TriviaController implements Initializable {
     public void toQuestion (Button dayButton, int dayNum){
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TriviaQues.fxml"));
-            Parent questionNode = loader.load();
+            Node questionNode = loader.load();
             TriviaQuesController triviaQuesController = loader.getController();
             triviaQuesController.setQuesNum(dayNum);
             

@@ -89,11 +89,12 @@ public class HomeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         String time=time();
+        String currentEmail="";
         Connection conn = JConnection.Conn();
-        User currentUser=SessionManager.getCurrentUser();
-        String currentEmail=SessionManager.getCurrentUser().getEmail();
-        testUser(currentEmail);
         if(SessionManager.isUserLoggedIn()){
+            User currentUser=SessionManager.getCurrentUser();
+            currentEmail=SessionManager.getCurrentUser().getEmail();
+            testUser(currentEmail);
             whatsUpText.setText("What\'s up! "+currentUser.getUsername());
         }
         else{

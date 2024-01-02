@@ -681,7 +681,7 @@
          <font>
             <Font name="Segoe UI Bold" size="12.0" />
          </font></Button>
-      <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #DDDDDD; -fx-background-radius: 5px;" text="Nature" textFill="#0cac5c" GridPane.columnIndex="2" GridPane.rowIndex="4">
+      <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#toNature" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #DDDDDD; -fx-background-radius: 5px;" text="Nature" textFill="#0cac5c" GridPane.columnIndex="2" GridPane.rowIndex="4">
          <font>
             <Font name="Segoe UI Bold" size="12.0" />
          </font></Button>

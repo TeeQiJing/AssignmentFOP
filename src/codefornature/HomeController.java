@@ -28,8 +28,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import java.sql.SQLException;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.application.Application;
+import javafx.concurrent.Task;
+import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+import javafx.application.Platform;
+import javafx.scene.control.Alert;
 /**
  * FXML Controller class
  *
@@ -37,6 +46,7 @@ import java.sql.SQLException;
  */
 public class HomeController implements Initializable {
     static String linkArray[]=new String[5];
+    static boolean firstTry=false;
     @FXML
     private ScrollPane scrollPane;
     @FXML
@@ -118,21 +128,63 @@ public class HomeController implements Initializable {
                     checkInText.setText("Click to Sign Up and Grab Your Daily Point!");
                 }
             }
+            news();
+            Task<Void> backgroundTask = new Task<>() {
+                @Override
+                protected Void call() throws Exception {
+                    start();
+                    return null;
+                }
+            };
+            new Thread(backgroundTask).start();
             
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }    
+
+    public void start() {
+        // Set up a timeline to update the label text every 3 seconds
+        if(!firstTry){
+            Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(3), event -> {
+                // Create and show the alert
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Auto-Close Dialog");
+                alert.setHeaderText(null);
+                alert.setContentText("You can\'t even see!");
+
+                // Show the alert
+                alert.show();
+
+                // Set up a timeline to close the alert after 1 second
+                Timeline closeTimeline = new Timeline(new KeyFrame(Duration.millis(0.1), e -> alert.close()));
+                closeTimeline.setCycleCount(1);
+                closeTimeline.play();
+                news();
+            }));
+            timeline.setCycleCount(1);
+            timeline.play();
+            firstTry=true;
+        }
+    }
+    
+    public void news(){
+        try{
+            Connection conn = JConnection.Conn();
+            Statement statement=conn.createStatement();
             ArrayList<Label>newsArray=new ArrayList<>();
             newsArray.add(news1);
             newsArray.add(news2);
             newsArray.add(news3);
             newsArray.add(news4);
             newsArray.add(news5);
-            
+
             ArrayList<Label>dateArray=new ArrayList<>();
             dateArray.add(date1);
             dateArray.add(date2);
             dateArray.add(date3);
             dateArray.add(date4);
             dateArray.add(date5);
-            
             String newsSql="SELECT `title`, `url`, `date` FROM `news` ";
             ResultSet newsResult=statement.executeQuery(newsSql);
             for(int i=0;i<5&&newsResult.next();i++){
@@ -145,11 +197,10 @@ public class HomeController implements Initializable {
                 label1.setText(title);
                 label2.setText(date);
             }
-
         }catch(Exception e){
             e.printStackTrace();
         }
-    }    
+    }
     @FXML
     private void checkIn(ActionEvent event){
         System.out.println("You have succesfully checked in! yay!");
@@ -179,6 +230,7 @@ public class HomeController implements Initializable {
                 BorderPane b1 = (BorderPane)seeSee.getScene().getRoot();
                 ((Text)b1.lookup("#pointsText")).setText("Points: " + point);
             }
+            news();
         }catch(Exception e){
             e.printStackTrace();
         }

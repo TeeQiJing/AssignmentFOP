@@ -68,6 +68,7 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        HomeController.firstTry=false;
         loadingAP.setVisible(false);
         loadingAP.managedProperty().bind(loadingAP.visibleProperty());
         

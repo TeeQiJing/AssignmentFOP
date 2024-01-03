@@ -1,16 +1,6 @@
-/*
- * Empty Stylesheet file.
- */
-
-.mainFxmlClass {
-    -fx-background-image: url('C:\Users\GIGA\OneDrive - Universiti Malaya\SEM1 WIX1002\ASSIGNMENT\AssignmentFOP\src\codefornature\images\leaf.png');
-    -fx-background-size: cover;
-    
-}
-
 .split-pane > .split-pane-divider {
-    -fx-background-color: white; /* Set the background color */
+    -fx-background-color: white; 
     -fx-border-width: 1px;
     -fx-border-color: white;
-    -fx-padding: 1px 0px 0px 0px; /* Set padding */
+    -fx-padding: 1px 0px 0px 0px; 
 }

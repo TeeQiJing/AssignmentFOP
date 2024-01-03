@@ -1,17 +1,3 @@
-/*.scroll-pane .scroll-bar:horizontal {
-    -fx-background-color: transparent;
-}
-
-
-.scroll-pane .scroll-bar .increment-button,
-.scroll-pane .scroll-bar .decrement-button {
-    -fx-visbility: hidden;
-}
-
-.scroll-pane .scroll-bar .thumb {
-    -fx-visbility: hidden;
-}*/
-
 .scroll-pane .scroll-bar:vertical,
 .scroll-pane .scroll-bar:horizontal {
     -fx-background-color: transparent;

@@ -12,9 +12,12 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
@@ -259,6 +262,24 @@ public class NewsController implements Initializable {
                 e.printStackTrace();
             }
         }
+
+    @FXML
+    private void toNature(ActionEvent event) {
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Nature.fxml"));
+            Node natureNode = loader.load();
+            NatureController natureController = loader.getController();
+            
+            
+            BorderPane bp1 = (BorderPane)gp.getScene().getRoot();
+            
+            bp1.setCenter(natureNode);    
+            natureController.initNature();
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 }
       
 

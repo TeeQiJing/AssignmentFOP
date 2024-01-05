@@ -1,5 +1,4 @@
 package codefornature;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -11,15 +10,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javax.swing.JFrame;
@@ -55,8 +50,7 @@ public class BuyMerchandiseController implements Initializable {
     @FXML
     private void buy(ActionEvent event) {
         if(merchandiseComboBox.getValue() == null || quantityTextField.getText().isEmpty() || addressTextField.getText().isEmpty() || Integer.parseInt(quantityTextField.getText()) == 0){
-            JOptionPane.showMessageDialog(new JFrame(), "Please fill in all fields! Quantity must be at least 1", "Dialog", JOptionPane.ERROR_MESSAGE);
-            
+            JOptionPane.showMessageDialog(new JFrame(), "Please fill in all fields! Quantity must be at least 1", "Dialog", JOptionPane.ERROR_MESSAGE);  
         }else{
             String merchandise = merchandiseComboBox.getValue();
             int quantity = Integer.parseInt(quantityTextField.getText());
@@ -74,26 +68,17 @@ public class BuyMerchandiseController implements Initializable {
 
                 preparedStatement.setString(1, SessionManager.getCurrentUser().getEmail());
                 ResultSet resultSet = preparedStatement.executeQuery();
-
-                
                 while(resultSet.next()) { 
-                    if(resultSet.getInt("count") == 1){
+                    if(resultSet.getInt("count") == 1)
                         current_point = resultSet.getInt("current_points");
-    //                        ((Text)bp1.lookup("#pointsText")).setText("Points: " + current_point);
-                    }
                 }
             }catch(Exception e){
                 e.printStackTrace();
             }
-
-
             if(deductedPoints <= current_point){
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(new File("MerchandiseOrder.txt"), true))) {
-               // Append donation entry
                     writer.write(SessionManager.getCurrentUser().getUsername() + " orders " + quantity + " " + merchandise +" to " + address);
                     writer.newLine(); 
-
-
                     Connection conn = JConnection.Conn();
                     String sql = "UPDATE user SET current_points = (current_points - ?) WHERE email = ?";
                     PreparedStatement preparedStatement = conn.prepareStatement(sql);
@@ -108,12 +93,10 @@ public class BuyMerchandiseController implements Initializable {
 
                     preparedStatement.setString(1, SessionManager.getCurrentUser().getEmail());
                     ResultSet resultSet = preparedStatement.executeQuery();
-
-
                     while(resultSet.next()) { 
                         if(resultSet.getInt("count") == 1){
                             current_point = resultSet.getInt("current_points");
-                                ((Text)bp1.lookup("#pointsText")).setText("Points: " + current_point);
+                            ((Text)bp1.lookup("#pointsText")).setText("Points: " + current_point);
                         }
                     }
                 }catch (IOException e) {
@@ -121,13 +104,11 @@ public class BuyMerchandiseController implements Initializable {
                 }catch(SQLException e){
                     e.printStackTrace();
                 }
-            }else{
+            }else
                 JOptionPane.showMessageDialog(new JFrame(), "You have no sufficient points! You need at least " + deductedPoints +" points!" , "Dialog", JOptionPane.YES_NO_CANCEL_OPTION);
-            }    
         }
         merchandiseComboBox.getSelectionModel().clearSelection();
         quantityTextField.setText("");
         addressTextField.setText("");
     }
-    
 }

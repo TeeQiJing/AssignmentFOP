@@ -5,3 +5,43 @@
 .mainFxmlClass {
 
 }
+
+.bgimage {
+    -fx-background-image: url("images/nature.jpg");
+    -fx-background-insets: 0 0 0 0 0 0;
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-background-size: 800 770;
+}
+.Image1 {
+    -fx-background-image: url("images/flower.jpg");
+    -fx-background-insets: 0 0 0 0 0 0;
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-background-size: 410 325;
+    
+}
+.Image2 {
+    -fx-background-image: url("images/i2.jpg");
+    -fx-background-insets: 0 0 0 0 0 0;
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-background-size: 410 325;
+    
+}
+.Image3 {
+    -fx-background-image: url("images/i3.jpg");
+    -fx-background-insets: 0 0 0 0 0 0;
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-background-size: 410 325;
+    
+}
+.Image4 {
+    -fx-background-image: url("images/i4.jpg");
+    -fx-background-insets: 0 0 0 0 0 0;
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-background-size: 410 325;
+    
+}

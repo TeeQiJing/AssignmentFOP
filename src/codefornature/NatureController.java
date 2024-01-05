@@ -1,9 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package codefornature;
-
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,16 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
-/**
- * FXML Controller class
- *
- * @author GIGA
- */
 public class NatureController implements Initializable {
-
-    /**
-     * Initializes the controller class.
-     */
     private static Connection conn;
     private String query;
     private ResultSet resultSet;
@@ -34,6 +20,7 @@ public class NatureController implements Initializable {
     private ArrayList<String> urlList = new ArrayList<>();
     private int i=0;
     private int j=0;
+    
     @FXML
     private Label news2;
     @FXML
@@ -55,13 +42,8 @@ public class NatureController implements Initializable {
     @FXML
     private Label date1;
     
-    
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        initNature();
-        
-        
-    }    
+    public void initialize(URL url, ResourceBundle rb) { initNature();}    
     
     public void initNature(){
         ArrayList<Label> newsArr = new ArrayList<>();
@@ -91,9 +73,7 @@ public class NatureController implements Initializable {
                 dateList.add(date);
                 String url = resultSet.getString("url");
                 urlList.add(url);
-                
                 count++;
-            
             }
             String[] titleArr = titleList.toArray(new String[0]);
             String[] dateArr = dateList.toArray(new String[0]);
@@ -104,15 +84,13 @@ public class NatureController implements Initializable {
                 news.setText(titleArr[i]);
                 Label date = datesArr.get(i);
                 date.setText(dateArr[i]);
-                
-            
             }
         }
-        
         catch(Exception e){
             e.printStackTrace();
         } 
     }    
+    
     public void openLink() {
         try{
             conn = JConnection.Conn();
@@ -121,75 +99,49 @@ public class NatureController implements Initializable {
             resultSet = preparedStatement.executeQuery();
             int count =0;
             while(resultSet.next()&& count<5){
-                
                 String url = resultSet.getString("url");
                 urlList.add(url);
-
                 count++;
-
-            }
-
-           
+            } 
             String [] urlArray = urlList.toArray(new String[0]);
-
-            
-                
-
-
-             
             java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
             try {
-                
                     System.out.println(urlArray[j]);
                     desktop.browse(new java.net.URI(urlArray[j]));
-                    System.out.println("j ="+j);
-                
-                
+                    System.out.println("j ="+j);  
             } 
             catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        
         catch(Exception e){
             e.printStackTrace();
         } 
-            
-            
-        
-        
     }
 
     @FXML
     private void news2Btn(MouseEvent event) {
         j=1;
         openLink();
-        
     }
-
     @FXML
     private void news3Btn(MouseEvent event) {
         j=2;
         openLink();
     }
-
     @FXML
     private void nesw4Btn(MouseEvent event) {
         j=3;
         openLink();
     }
-
     @FXML
     private void news5Btn(MouseEvent event) {
         j=4;
         openLink();
     }
-
     @FXML
     private void new1Btn(MouseEvent event) {
         j=0;
         openLink();
     }
-    
-    
 }

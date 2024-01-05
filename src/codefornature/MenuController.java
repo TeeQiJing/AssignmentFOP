@@ -1,5 +1,4 @@
 package codefornature;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -8,7 +7,6 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -27,7 +25,6 @@ import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 
 public class MenuController implements Initializable {
-
     private double x=0, y=0;
     private Scene scene;
     private Stage stage;
@@ -62,7 +59,6 @@ public class MenuController implements Initializable {
     private VBox menuVBox;
     @FXML
     private AnchorPane minMaxClosebar; 
-
     
     private void hoverEffect(Button btn){
         btn.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>() {
@@ -71,7 +67,6 @@ public class MenuController implements Initializable {
                 btn.setStyle(hoverStyle); 
             }
         });
-
         btn.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -116,69 +111,35 @@ public class MenuController implements Initializable {
                     int point = resultSet.getInt("current_points");
                     pointsText.setText("Points: " + point);
                 }
-            }
-            
-            
-            
+            }        
         }catch(Exception e){
             e.printStackTrace();
         }
-        
     }
-    
     @FXML
-    private void homePage(MouseEvent event) {
-        loadPage("Home"); 
-    }
-
+    private void homePage(MouseEvent event) { loadPage("Home"); }    
     @FXML
-    private void triviaPage(MouseEvent event) {
-        loadPage("Trivia");       
-    }
-
+    private void triviaPage(MouseEvent event) { loadPage("Trivia"); }
     @FXML
-    private void newsPage(MouseEvent event) {
-        loadPage("News");
-    }
-
+    private void newsPage(MouseEvent event) { loadPage("News"); }
     @FXML
-    private void donationPage(MouseEvent event) {
-        loadPage("Donations");
-    }
- 
+    private void donationPage(MouseEvent event) { loadPage("Donations"); }
     @FXML
-    private void pointShopPage(MouseEvent event) {
-        loadPage("PointShop");
-    }
-    
+    private void pointShopPage(MouseEvent event) { loadPage("PointShop"); }
     @FXML
     private void logOutPage(MouseEvent event) throws Exception{
-        
-
         try {
-            // Load the pop-out logout FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("LogOut.fxml"));
             Parent root = loader.load();
-
-            // Create a new stage for the pop-out window
             Stage popupStage = new Stage();
-            
             popupStage.setScene(new Scene(root));
-
-            // Set the modality of the stage to APPLICATION_MODAL
             popupStage.initModality(Modality.APPLICATION_MODAL);
             popupStage.initStyle(StageStyle.UNDECORATED);
-            
-            // Show the pop-out window
             popupStage.showAndWait();
-
         } catch (IOException e) {
             e.printStackTrace();
         }   
     }
-//    public BorderPane getBp2() {
-//        return bp2;
-//    }
     public void loadPage(String page){
         Parent root = null;
         try{
@@ -188,26 +149,22 @@ public class MenuController implements Initializable {
         }
         bp1.setCenter(root);     
     }
-
     @FXML
     private void borderpane_dragged(MouseEvent event) {
         stage = (Stage) bp1.getScene().getWindow();
         stage.setY(event.getScreenY() - y);
         stage.setX(event.getScreenX() - x);
     }
-
     @FXML
     private void borderpane_pressed(MouseEvent event) {
         x = event.getSceneX();
         y = event.getSceneY();
     }
-
     @FXML
     private void closeBtnClicked(MouseEvent event) {
         stage = (Stage) closeBtn.getScene().getWindow();
         stage.close();
     }
-
     @FXML
     private void maxBtnClicked(MouseEvent event) {
         stage = (Stage) minBtn.getScene().getWindow();

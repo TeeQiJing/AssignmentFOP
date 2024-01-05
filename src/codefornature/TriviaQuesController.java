@@ -1,9 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package codefornature;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -23,7 +18,6 @@ import javafx.scene.text.Text;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-
 public class TriviaQuesController implements Initializable {
 
     @FXML
@@ -39,10 +33,7 @@ public class TriviaQuesController implements Initializable {
     private static List<String> optionList;
     private static String answer;
     
-    
     public void initializeQues(){
-//        question.setText("Question "+quesNum);
-        
         try{
             conn = JConnection.Conn();
             sql = "SELECT *, count(*) AS count FROM user_trivia WHERE id = ? AND email = ?";
@@ -53,15 +44,13 @@ public class TriviaQuesController implements Initializable {
             
             int attempts = 0;
             while(resultSet.next()) { 
-                if(resultSet.getInt("count") == 1){
+                if(resultSet.getInt("count") == 1)
                     attempts = resultSet.getInt("attempts");
-                }
             }
 
             sql = "SELECT *, count(*) AS count FROM trivia WHERE id = ?";
             preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setInt(1, quesNum);
-            
             resultSet = preparedStatement.executeQuery();
             
             while(resultSet.next()) { 
@@ -79,9 +68,8 @@ public class TriviaQuesController implements Initializable {
                                 option.setDisable(true);
                                 option.setOpacity(1.0);
                                 option.setStyle("-fx-background-color: #dddddd;");
-                                if(option.getText().equals(answer)){
+                                if(option.getText().equals(answer))
                                     option.setStyle("-fx-background-color: green; ");
-                                }
                             }else if(attempts == 1){
                                 final Button optionBtn = option;
                                 optionBtn.setOnMouseClicked(e -> {
@@ -90,11 +78,9 @@ public class TriviaQuesController implements Initializable {
                                     if(optionBtn.getText().equals(answer)){
                                         JOptionPane.showMessageDialog(new JFrame(), "Congratulations! You answered it correctly. You have been awarded 1 point !", "Dialog", JOptionPane.YES_NO_CANCEL_OPTION);
                                         point = 1;     
-//                                        SessionManager.getCurrentUser().setCurrentPoint(SessionManager.getCurrentUser().getCurrentPoint() + 1);
-                                    }else {
+                                    }else 
                                         JOptionPane.showMessageDialog(new JFrame(), "Your answer is still incorrect, the correct answer will be revealed", "Dialog", JOptionPane.ERROR_MESSAGE);
                                         point = 0;
-                                    }
                                     try{
                                         sql = "UPDATE user_trivia SET attempts = ? WHERE email = ? AND id = ?";
                                         preparedStatement = conn.prepareStatement(sql);
@@ -115,7 +101,6 @@ public class TriviaQuesController implements Initializable {
                                 });
                             }else if(attempts == 0){
                                 final Button optionBtn = option;
-                                
                                 optionBtn.setOnMouseClicked(ev -> {
                                     int point = 0;
                                     int attemptsNow = 1;
@@ -124,9 +109,7 @@ public class TriviaQuesController implements Initializable {
                                         JOptionPane.showMessageDialog(new JFrame(), "Congratulations! You answered it correctly. You have been awarded 2 point !", "Dialog", JOptionPane.YES_NO_CANCEL_OPTION);
                                         point = 2;  
                                         attemptsNow = 2;
-//                                        SessionManager.getCurrentUser().setCurrentPoint(SessionManager.getCurrentUser().getCurrentPoint() + point);
                                         initializeQues();
-                                        
                                     }else {
                                         attemptsNow = 1;
                                         point = 0;
@@ -140,7 +123,6 @@ public class TriviaQuesController implements Initializable {
                                         preparedStatement.setString(2, SessionManager.getCurrentUser().getEmail());
                                         preparedStatement.setInt(3, quesNum);
                                         int rowsAffected = preparedStatement.executeUpdate();
-                                        
                                         
                                         sql = "UPDATE user SET current_points = (current_points + ?) WHERE email = ?";
                                         preparedStatement = conn.prepareStatement(sql);
@@ -161,44 +143,29 @@ public class TriviaQuesController implements Initializable {
                 }else {
                     System.out.println("Question not found");
                 }
-                
             }
-            
         }catch(Exception e){
             e.printStackTrace();
         }
         
         try{
             Connection conn = JConnection.Conn();
-            
             String sql = "SELECT *, count(*) AS count FROM user WHERE email = ?";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
-            
             preparedStatement.setString(1, SessionManager.getCurrentUser().getEmail());
             ResultSet resultSet = preparedStatement.executeQuery();
-
-            BorderPane bp1 = (BorderPane)question.getScene().getRoot();
-            
-           
+            BorderPane bp1 = (BorderPane)question.getScene().getRoot();      
             int point = 0;
             while(resultSet.next()) { 
                 if(resultSet.getInt("count") == 1){
                     point = resultSet.getInt("current_points");
-                    ((Text)bp1.lookup("#pointsText")).setText("Points: " + point);
-                    
+                    ((Text)bp1.lookup("#pointsText")).setText("Points: " + point); 
                 }
             }
-            
             System.out.println("Current Points : " + point);
-            
-            
-            
         }catch(Exception e){
             e.printStackTrace();
         }
-        
-        
-        
     }
     
     public void setQuesNum(int dayNum){  
@@ -208,11 +175,9 @@ public class TriviaQuesController implements Initializable {
         optionList.add("optionB");
         optionList.add("optionC");
         optionList.add("optionD");
-        Collections.shuffle(optionList);
-        
+        Collections.shuffle(optionList); 
         this.quesNum = dayNum;
     }
-    
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to right, #00b09b, #96c93d);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codefornature.NatureController">
+<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to right, #00b09b, #96c93d);" stylesheets="@nature.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codefornature.NatureController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -26,7 +27,7 @@
       </Label>
       <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.rowIndex="2">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
@@ -45,10 +46,13 @@
                <children>
                   <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#news2Btn">
                      <children>
-                        <Label fx:id="date2" alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="130.0" style="-fx-background-color: lightgreen;" text="Label" wrapText="true">
+                        <Label fx:id="date2" alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="130.0" style="-fx-background-color: lightgreen;" styleClass="Image1" text="Label" textFill="WHITE" wrapText="true">
                            <padding>
                               <Insets left="10.0" />
                            </padding>
+                           <font>
+                              <Font name="Segoe UI Bold" size="12.0" />
+                           </font>
                         </Label>
                         <Label fx:id="news2" alignment="TOP_LEFT" lineSpacing="2.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="130.0" style="-fx-background-color: #C1E1C1;" text="Label" wrapText="true">
                            <font>
@@ -62,10 +66,13 @@
                   </VBox>
                   <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#news3Btn" GridPane.columnIndex="1">
                      <children>
-                        <Label fx:id="date3" alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="130.0" style="-fx-background-color: lightgreen;" text="Label" wrapText="true">
+                        <Label fx:id="date3" alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="130.0" style="-fx-background-color: lightgreen;" styleClass="Image2" text="Label" textFill="WHITE" wrapText="true">
                            <padding>
                               <Insets left="10.0" />
                            </padding>
+                           <font>
+                              <Font name="Segoe UI Bold" size="12.0" />
+                           </font>
                         </Label>
                         <Label fx:id="news3" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="130.0" style="-fx-background-color: #C1E1C1;" text="Label" wrapText="true">
                            <font>
@@ -79,10 +86,13 @@
                   </VBox>
                   <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#nesw4Btn" GridPane.rowIndex="1">
                      <children>
-                        <Label fx:id="date4" alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="130.0" style="-fx-background-color: lightgreen;" text="Label" wrapText="true">
+                        <Label fx:id="date4" alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="130.0" style="-fx-background-color: lightgreen;" styleClass="Image3" text="Label" textFill="WHITE" wrapText="true">
                            <padding>
                               <Insets left="10.0" />
                            </padding>
+                           <font>
+                              <Font name="Segoe UI Bold" size="12.0" />
+                           </font>
                         </Label>
                         <Label fx:id="news4" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="130.0" style="-fx-background-color: #C1E1C1;" text="Label" wrapText="true">
                            <font>
@@ -96,10 +106,13 @@
                   </VBox>
                   <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#news5Btn" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <Label fx:id="date5" alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="130.0" style="-fx-background-color: lightgreen;" text="Label" wrapText="true">
+                        <Label fx:id="date5" alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="130.0" style="-fx-background-color: lightgreen;" styleClass="Image4" text="Label" textFill="WHITE" wrapText="true">
                            <padding>
                               <Insets left="10.0" />
                            </padding>
+                           <font>
+                              <Font name="Segoe UI Bold" size="12.0" />
+                           </font>
                         </Label>
                         <Label fx:id="news5" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="130.0" style="-fx-background-color: #C1E1C1;" text="Label" wrapText="true">
                            <font>
@@ -112,13 +125,19 @@
                      </children>
                   </VBox>
                </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </GridPane>
-            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#new1Btn" prefHeight="298.0" prefWidth="287.0" style="-fx-background-color: #C1E1C1;">
+            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#new1Btn" scaleShape="false" style="-fx-background-color: #C1E1C1;" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label fx:id="date1" alignment="BOTTOM_LEFT" contentDisplay="TOP" graphicTextGap="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="500.0" prefWidth="266.0" style="-fx-background-color: lightgreen;" text="Label" wrapText="true" VBox.vgrow="ALWAYS">
+                  <Label fx:id="date1" alignment="BOTTOM_LEFT" contentDisplay="TOP" graphicTextGap="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="500.0" prefWidth="266.0" style="-fx-background-color: lightgreen;" styleClass="bgimage" stylesheets="@nature.css" text="Label" textFill="WHITE" wrapText="true" VBox.vgrow="ALWAYS">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
+                     <font>
+                        <Font name="Segoe UI Bold" size="15.0" />
+                     </font>
                   </Label>
                   <Label fx:id="news1" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="282.0" text="Label" wrapText="true" VBox.vgrow="ALWAYS">
                      <font>
@@ -132,6 +151,9 @@
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </VBox>
          </children>
          <GridPane.margin>

@@ -1,9 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package codefornature;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -35,11 +30,6 @@ import javafx.stage.StageStyle;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-/**
- * FXML Controller class
- *
- * @author GIGA
- */
 public class SignUpController implements Initializable {
     private Scene scene;
     private Stage stage;

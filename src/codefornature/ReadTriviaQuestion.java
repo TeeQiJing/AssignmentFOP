@@ -49,8 +49,7 @@ public class ReadTriviaQuestion {
                     // Execute the insertion
                     preparedStatement.executeUpdate();
                     count++;
-                }
-                
+                }  
             }
 
             System.out.println("Data insertion successful.");

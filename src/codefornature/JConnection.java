@@ -1,13 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package codefornature;
-
-/**
- *
- * @author GIGA
- */
 import java.sql.Connection;
 import java.sql.DriverManager;
 import javax.swing.JFrame;
@@ -18,7 +9,6 @@ public class JConnection {
         String username = "root";
         String password = "";
         try{
-            // Call the system class loader to load the driver class
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(url, username, password);
             return conn;

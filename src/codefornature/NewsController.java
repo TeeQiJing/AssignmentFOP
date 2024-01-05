@@ -1,9 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package codefornature;
-
 import java.sql.PreparedStatement;
 import java.net.URL;
 import java.sql.Connection;
@@ -19,7 +14,6 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Text;
 
 public class NewsController implements Initializable {
     @FXML
@@ -34,8 +28,7 @@ public class NewsController implements Initializable {
     private ArrayList<String> titleList = new ArrayList<>();
     private ArrayList<String> dateList = new ArrayList<>();
     private ArrayList<String> urlList = new ArrayList<>();
-    
-
+   
     @FXML
     private Label news1;
     @FXML
@@ -117,12 +110,9 @@ public class NewsController implements Initializable {
     @FXML
     private Hyperlink link20;
     
-    
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        showNews(j);
-    }    
-
+    public void initialize(URL url, ResourceBundle rb) {showNews(j);}    
+    
     @FXML
     private void nextBtn(ActionEvent event) {
         if(j<=countValue-20){
@@ -130,7 +120,6 @@ public class NewsController implements Initializable {
             showNews(j);
         }
     }
-    
     @FXML
     private void previousBtn(ActionEvent event) {
         if(j>20 ){
@@ -138,7 +127,6 @@ public class NewsController implements Initializable {
             showNews(j);
         }  
     }
-    
     public void showNews(int j){
         ArrayList<Label> newsArr = new ArrayList<>();
         newsArr.add(news1);
@@ -190,9 +178,8 @@ public class NewsController implements Initializable {
             preparedStatement = conn.prepareStatement(sql);
             resultSet = preparedStatement.executeQuery();
             
-            while(resultSet.next()){
+            while(resultSet.next())
                  countValue= resultSet.getInt("count"); 
-            }
             
             sql = "SELECT * FROM news";
             preparedStatement = conn.prepareStatement(sql);
@@ -205,8 +192,6 @@ public class NewsController implements Initializable {
                 dateList.add(date);
                 String url = resultSet.getString("url");
                 urlList.add(url);
-                
-                
             }
             
             String[] titleArr = titleList.toArray(new String[0]);
@@ -219,25 +204,21 @@ public class NewsController implements Initializable {
                 if(j>countValue){
                     break;
                 }
-                else if(j<=20){
+                else if(j<=20)
                     i=j;
-                }
-                else if(j>20 && j%20!=0){
+                else if(j>20 && j%20!=0)
                     i=j%20;
-                }
-                else{
+                else
                     i=20;
-                }
                     
                 strDate.append(titleArr[j-1]).append("\n").append("\n").append(dateArr[j-1]);
                 String titleDate = strDate.toString();
                 Label label = newsArr.get(i-1);                                                                
                 label.setText(titleDate);  
                 
-                
                 Hyperlink hyperlink = urlArr.get(i-1);
                 hyperlink.setText(urlArray[j-1]);
-//                final String []  urlStringArr = urlArray;
+                
                 final int z = j;
                 hyperlink.setOnAction(e -> {
                     openLink(urlArray[z-1]);
@@ -250,32 +231,26 @@ public class NewsController implements Initializable {
             e.printStackTrace();
         } 
     }
-        public static void openLink(String url) {
-        // Implement the logic to open the link, e.g., using java.awt.Desktop
-        // You can also use HostServices to open the link in the default web browser
-        // Note: In a full application, you should handle exceptions appropriately
-            java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
-            try {
-                desktop.browse(new java.net.URI(url));
-            } 
-            catch (Exception e) {
-                e.printStackTrace();
-            }
+    
+    public static void openLink(String url) {
+        java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+        try {
+            desktop.browse(new java.net.URI(url));
+        } 
+        catch (Exception e) {
+            e.printStackTrace();
         }
+    }
 
     @FXML
     private void toNature(ActionEvent event) {
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Nature.fxml"));
             Node natureNode = loader.load();
-            NatureController natureController = loader.getController();
-            
-            
-            BorderPane bp1 = (BorderPane)gp.getScene().getRoot();
-            
+            NatureController natureController = loader.getController();          
+            BorderPane bp1 = (BorderPane)gp.getScene().getRoot();    
             bp1.setCenter(natureNode);    
             natureController.initNature();
-
         }catch(Exception e){
             e.printStackTrace();
         }

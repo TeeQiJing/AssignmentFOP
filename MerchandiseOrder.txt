@@ -13,3 +13,4 @@ Zhen Yu orders 2000 merch-5 to KMJ
 titus123 orders 1000 merch-5 to titus de jia
 qibin041227 orders 89 merch-2 to kl
 qibin041227 orders 3 merch-3 to w
+qibin041227 orders 1000000 merch-3 to 2

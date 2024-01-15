@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2023 at 03:28 AM
+-- Generation Time: Jan 15, 2024 at 05:58 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -40,8 +40,8 @@ CREATE TABLE `home` (
 INSERT INTO `home` (`email`, `checked`, `date`) VALUES
 ('bobby123@gmail.com', '2023-12-18', '2023-12-18'),
 ('lauduanhang@gmail.com', '2023-12-18', '2023-12-18'),
-('qibin041227@gmail.com', '2023-12-18', '2023-12-18'),
-('qijingtee1227@gmail.com', '2023-12-18', '2023-12-18'),
+('qibin041227@gmail.com', '2024-01-06', '2024-01-06'),
+('qijingtee1227@gmail.com', '2024-01-07', '2024-01-07'),
 ('sasa@gmail.com', '2023-12-18', '2023-12-18'),
 ('test123@gmail.com', '2023-12-18', '2023-12-18'),
 ('zhenyu123@gmail.com', '2023-12-18', '2023-12-18');
@@ -63,6 +63,27 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`title`, `url`, `date`) VALUES
+('Photographer stops time to snap butterflies and birds', 'https://bbc.com/news/uk-england-shropshire-67785102', '2023-12-30'),
+('The silent killer stalking Australia\'s summer', 'https://bbc.com/news/world-australia-67633892', '2023-12-29'),
+('Renewable energy drive for indigenous Colombians', 'https://bbc.com/news/world-latin-america-67825466', '2023-12-27'),
+('Group clears 1,300kg of waste from beach in 2023', 'https://bbc.com/news/articles/cjqp48z1vkpo', '2023-12-26'),
+('Scheme helping young people connect with nature', 'https://bbc.com/news/uk-england-devon-67737556', '2023-12-24'),
+('Christmas trees - festive fun or ecological menace?', 'https://bbc.com/news/world-europe-67781387', '2023-12-22'),
+('Council sets up habitat bank for developers', 'https://bbc.com/news/uk-england-cambridgeshire-67773962', '2023-12-21'),
+('City\'s e-bike free delivery service is \'vital\'', 'https://bbc.com/news/uk-england-essex-67763314', '2023-12-20'),
+('Daera announces changes to ammonia guidance', 'https://bbc.com/news/uk-northern-ireland-67764795', '2023-12-19'),
+('Recycling charge for large household appliances', 'https://bbc.com/news/world-europe-guernsey-67752453', '2023-12-19'),
+('Mexico\'s mega train - world beating or environmental disaster?', 'https://bbc.com/news/world-latin-america-67638183', '2023-12-15'),
+('Canterbury litter fines to increase to £200', 'https://bbc.com/news/articles/cg3xvj1n3e7o', '2023-12-15'),
+('Historic church could see solar panels installed', 'https://bbc.com/news/uk-england-york-north-yorkshire-67722238', '2023-12-14'),
+('Redcar hydrogen trial scrapped by government', 'https://bbc.com/news/articles/c842wzn9g35o', '2023-12-14'),
+('More time for tree quota after farm scheme tweaked', 'https://bbc.com/news/uk-wales-67705357', '2023-12-14'),
+('Mayor rejects driver charges in Clean Air Zone plan', 'https://bbc.com/news/uk-england-manchester-67703258', '2023-12-13'),
+('Gatwick Airport makes changes to runway plans', 'https://bbc.com/news/articles/c51z8k95ge8o', '2023-12-13'),
+('A really simple guide to climate change', 'https://bbc.com/news/science-environment-24021772', '2023-12-13'),
+('Warning issued after dead fish found around park', 'https://bbc.com/news/articles/cpvp3r143kko', '2023-12-12'),
+('Satellite images show devastating Himalayan floods', 'https://bbc.com/news/world-asia-india-67678440', '2023-12-12'),
+('Sewage in 200 tankers taken to town, council hears', 'https://bbc.com/news/articles/c99ewpk4rd4o', '2023-12-11'),
 ('How the war changed Russia’s climate agenda', 'https://bbc.com/news/world-europe-67637803', '2023-12-10'),
 ('How divers are using antibiotics to save a massive coral reef', 'https://bbc.com/news/world-latin-america-67647402', '2023-12-10'),
 ('Cornish company wins top environmental award', 'https://bbc.com/news/uk-england-cornwall-67637023', '2023-12-09'),
@@ -341,28 +362,7 @@ INSERT INTO `news` (`title`, `url`, `date`) VALUES
 ('Beach industrial waste clearance signed off', 'https://bbc.com/news/uk-england-tyne-66187599', '2023-07-13'),
 ('Prosthetic legs made from binned household plastic', 'https://bbc.com/news/uk-wales-66174324', '2023-07-13'),
 ('Welsh Water downgraded over sewage pollution', 'https://bbc.com/news/uk-wales-66173170', '2023-07-12'),
-('New global engine maker plans UK headquarters', 'https://bbc.com/news/business-66172158', '2023-07-12'),
-('Prince William visits woodland set for expansion', 'https://bbc.com/news/uk-england-devon-66169614', '2023-07-11'),
-('Farmers warned after beetle larvae pest found', 'https://bbc.com/news/articles/cp60e821lxpo', '2023-07-11'),
-('New Forest pond reopens after restoration work', 'https://bbc.com/news/uk-england-hampshire-66153314', '2023-07-11'),
-('Botanical gardens reveal £13m revamp', 'https://bbc.com/news/uk-england-birmingham-66152760', '2023-07-10'),
-('The rush for nickel: \'They are destroying our future\'', 'https://bbc.com/news/world-asia-66131451', '2023-07-10'),
-('Toxic algae warning extended along north coast', 'https://bbc.com/news/uk-northern-ireland-66148033', '2023-07-09'),
-('Clean air zone delayed again over bus technology', 'https://bbc.com/news/uk-england-manchester-66142388', '2023-07-09'),
-('Green bin charge plans opposed by thousands', 'https://bbc.com/news/uk-england-suffolk-66118515', '2023-07-06'),
-('Ferrets and rats targeted in island puffin battle', 'https://bbc.com/news/uk-northern-ireland-66088620', '2023-07-05'),
-('Memo reveals pressure on UK climate finance pledge', 'https://bbc.com/news/uk-66105901', '2023-07-05'),
-('Thames Water fined £3.3m over river sewage', 'https://bbc.com/news/uk-england-sussex-66097906', '2023-07-04'),
-('Ancient Dartmoor woodland to double in size', 'https://bbc.com/news/uk-england-devon-66096431', '2023-07-04'),
-('Power plant could lose subsidies over compliance', 'https://bbc.com/news/uk-england-york-north-yorkshire-66066109', '2023-07-04'),
-('Plan to protect South Yorkshire\'s green spaces', 'https://bbc.com/news/uk-england-south-yorkshire-66091669', '2023-07-04'),
-('Water firm\'s pollution turned river black - court', 'https://bbc.com/news/uk-england-sussex-66088798', '2023-07-03'),
-('Probe launched after human poo dumped in river', 'https://bbc.com/news/uk-wales-66091119', '2023-07-03'),
-('June was hottest in Jersey since 1976 - forecasters', 'https://bbc.com/news/articles/cy753ly5d23o', '2023-07-03'),
-('New Zealand bans plastic bags for fresh produce', 'https://bbc.com/news/business-66083337', '2023-07-03'),
-('Sex life of rare \'leopard-print\' frog revealed', 'https://bbc.com/news/science-environment-66001590', '2023-07-01'),
-('Humans hundreds of times \'deadlier\' than sharks', 'https://bbc.com/news/science-environment-66058976', '2023-06-30'),
-('EU court finds Ireland failed to follow nature laws', 'https://bbc.com/news/articles/cy975d7wle9o', '2023-06-30');
+('New global engine maker plans UK headquarters', 'https://bbc.com/news/business-66172158', '2023-07-12');
 
 -- --------------------------------------------------------
 
@@ -394,7 +394,27 @@ INSERT INTO `trivia` (`id`, `question`, `optionA`, `optionB`, `optionC`, `option
 (7, 'What covers one third of the land’s surface, and helps to keep the climate stable by storing carbon?', 'Forests', 'Deserts', 'Grasslands', 'Rivers', 'Forests'),
 (8, 'Why are pollinators such as bees so essential to life on earth?', 'They provide oxygen', 'They turn over the soil helping plants to grow', 'They help reduce pest populations', 'They help provide the food we eat', 'They help provide the food we eat'),
 (9, 'Which of these species doesn’t have a home in the forest?', 'Grizzly bear', 'Great hornbill', 'Cheetah', 'Ring tailed lemur', 'Cheetah'),
-(10, 'On land which animal only ever moves their hind legs together, however in the water they kick each leg independently to swim?', 'Rhinoceros', 'Kangaroo', 'Hornbill', 'Hippopotamus', 'Kangaroo');
+(10, 'On land which animal only ever moves their hind legs together, however in the water they kick each leg independently to swim?', 'Rhinoceros', 'Kangaroo', 'Hornbill', 'Hippopotamus', 'Kangaroo'),
+(11, 'The crop which considers frost as its enemy is ?', 'Rubber', 'Tea', 'Tobacco', 'Coffee', 'Tobacco'),
+(12, 'The first species of an agricultural crop produced scientifically by humans was ?', 'Triticale', 'Bt cotton', 'Sorghum', 'Chickkpea', 'Triticale'),
+(13, 'The only snake that builds a nest is ?', 'Desert Adder', 'Rattle Snake', 'King Cobra', 'Boa Constictor', 'King Cobra'),
+(14, 'This half-zebra-half-horse animal species went into extinction in the year 1883. This one of the most famous species of Africa, went into extinction due to excessive hunting. Name it.', 'Aurochs', 'Blue Buck', 'Quagga', 'Imposter Hutia', 'Quagga'),
+(15, 'Which of the following is not obtained from the bark of a tree?', 'Quinine', 'Tannin', 'Bhang', 'Cinnamon', 'Bhang'),
+(16, 'Transport of food from leaves to other parts of plant is termed as?', 'Scivation', 'Translocation', 'Upsuction', 'Transpiration', 'Translocation'),
+(17, 'Which is the only bird sanctuary in Uttarakhand?', 'Nanda devi Sanctuary', 'Ascot sanctuary', 'Rajaji national park', 'Assan Barrage Sanctuary', 'Assan Barrage Sanctuary'),
+(18, 'The phenomenon of summer sleep by animals is called?', 'Hibernation', 'Incubation', 'Gestation', 'Estivation', 'Estivation'),
+(19, 'What is the most abundant species of bird in the world?', 'The house crow', 'The house Sparrow', 'The house Bird', 'The red-billed Quelea', 'The red-billed Quelea'),
+(20, 'One of the oldest sight hound dog breeds, this one is regarded as the dumbest dog breed', 'Spanish Water dog', 'Poodle', 'American Alsatian', 'African Hound', 'African Hound'),
+(21, 'Which crop in Maharashtra is known as White Gold?', 'Oats', 'Barley', 'Rice', 'Cotton', 'Cotton'),
+(22, 'Sailor, Dead Leaf, Paper Kite, Blue Striped Crow, Julia and Great Egg Fly are all names of what?', 'Honeybees', 'Parrots', 'Sparrows', 'Butterflies', 'Butterflies'),
+(23, 'Which of the following is not a Biosphere Reserve?', 'Agasthyamala', 'Panchamarhi', 'Nilgiri', 'Nallamala', 'Nallamala'),
+(24, 'Salim Ali Centre for Ornithology and Natural History is situated at ?', 'Cochin', 'Ootacomand', 'Bombay', 'Coimbatore', 'Coimbatore'),
+(25, 'A group of owl is called a ?', 'Mob', 'Ministry', 'Hub', 'Parliament', 'Parliament'),
+(26, 'How many eyes does an earthworm have?', '0', '2', '6', '12', '0'),
+(27, 'What are male zebras called?', 'Colt', 'Buck', 'Ram', 'Stallions', 'Stallions'),
+(28, 'Which type of squirrel inhabits your garden in India?', 'The Hoar-bellied squirrel', 'The Malayan giant squirrel', 'The five stripped palm squirrel', 'HAHAHA IDK', 'The five stripped palm squirrel'),
+(29, 'The great Indian Bustard is found which Indian state?', 'Madhya Pradesh', 'Assam', 'Karnataka', 'Rajasthan', 'Rajasthan'),
+(30, 'Of major insect groups, which are the only ones with just one pair of wings?', 'Mosquitoes', 'Dragonflies', 'Cockroaches', 'Houseflies', 'Houseflies');
 
 -- --------------------------------------------------------
 
@@ -417,8 +437,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`email`, `username`, `password`, `registration_date`, `current_points`) VALUES
 ('bobby123@gmail.com', 'Bobby', 'bobby123', '14/11/2023', 24),
 ('lauduanhang@gmail.com', 'Lau Duan Hang', 'duanhang', '06/11/2023', 0),
-('qibin041227@gmail.com', 'qibin041227', 'bin12345', '01/11/2023', 101),
-('qijingtee1227@gmail.com', 'qijingtee1227', 'jing1234', '01/11/2023', 0),
+('qibin041227@gmail.com', 'qibin041227', 'bin12345', '01/11/2023', 105),
+('qijingtee1227@gmail.com', 'qijingtee1227', 'jing1234', '01/11/2023', 9),
 ('sasa@gmail.com', 'Sasa', 'sasa1234', '05/11/2023', 0),
 ('test123@gmail.com', 'Test', 'test0000', '08/12/2023', 0);
 
@@ -439,18 +459,9 @@ CREATE TABLE `user_trivia` (
 --
 
 INSERT INTO `user_trivia` (`email`, `id`, `attempts`) VALUES
-('bobby123@gmail.com', 1, 2),
-('bobby123@gmail.com', 2, 2),
-('qibin041227@gmail.com', 1, 2),
-('qibin041227@gmail.com', 2, 2),
-('qibin041227@gmail.com', 3, 2),
-('qibin041227@gmail.com', 4, 2),
-('qibin041227@gmail.com', 5, 2),
-('qibin041227@gmail.com', 6, 2),
-('qibin041227@gmail.com', 7, 2),
-('qibin041227@gmail.com', 8, 2),
-('qibin041227@gmail.com', 9, 2),
-('qibin041227@gmail.com', 10, 2);
+('qijingtee1227@gmail.com', 7, 2),
+('qijingtee1227@gmail.com', 8, 2),
+('qijingtee1227@gmail.com', 20, 2);
 
 --
 -- Indexes for dumped tables
